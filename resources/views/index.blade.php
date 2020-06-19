@@ -9,6 +9,23 @@
 @endsection
 
 <style>
+    .text-block {
+        position: absolute;
+        bottom: auto;
+        left: 0;
+        background-color: black;
+        color: white;
+        padding-left: 12px;
+        padding-right: 12px;
+        font-size:
+        ;
+    }
+
+    .table_sticky {
+
+        margin-bottom: .5em;
+    }
+
     .masonry .entry__text {
         padding: 1.2rem 0.8rem 4rem;
         background-color: #ffffff;
@@ -407,52 +424,50 @@
                     <h6 style="margin-top: 0;margin-bottom: 2em;"> &#9899; POPULARES</h6>
 
 
-                    {{--
-                    <table class="table table-dark">
-                        <tbody>
-                            <tr>
-                                <td rowspan="2" style="padding: 0;width: 46%;"> <img src="/storage/posts/post1.jpg"
-                                        alt="Nature" class="responsiveSidebar" width="300" height="300"></td>
-                                <td style="padding-left: .5em;padding-top:0;">
-                                    <p class="sticky_title" style="margin-bottom: 0;font-weight: bold;">
-                                        The new adidas </p>
-                                </td>
 
-                            </tr>
-
-                            <tr>
-                                <td style="padding: .5em;">
-                                    <p style="font-size:.8vw;margin:0;">(music) 12 junho, 2020</p>
-                                </td>
-                            </tr>
-
-                        </tbody>
-                    </table> --}}
                     <div class="table-responsive">
 
-                        <table style="margin-bottom: 0px;">
 
-                            <tbody>
-                                <tr>
-                                    <td class="image_   grid_" id="image_grid_" rowspan="2" style="padding: 0; ">
-                                        <img class="image_grid_img" src="/storage/posts/post1.jpg" alt="">
-                                    </td>
-                                    <td id="sticky_title_td"
-                                        style="vertical-align: top;padding-left:0px;padding-top:0px;">
-                                        <h3 style="margin-top: 0;" id="sticky_title" class="title_grid_">
-                                            Lorem Ispsum PosLorem Ispsum PosLorem Isps
-                                        </h3>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="padding-bottom: 0;padding-left: 0;">
-                                        <p style="margin-bottom:0px;" id="sticky_subtitle" class="date_grid_">(music)
-                                            12 junho, 2020</p>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
 
+                        <?php $count = 0; ?>
+                        <?php $postCount = 1; ?>
+                        @foreach ($posts as $post)
+                        <?php if($count ==5) break; ?>
+                        <div class="container">
+                            <table class="table_sticky" style="margin-bottom: 0px;">
+
+                                <tbody>
+                                    <tr>
+                                        <td class="image_grid_" id="image_grid_" rowspan="2" style="padding: 0; ">
+                                            <div class="container">
+                                                <div class="text-block">
+                                                    <p style="margin-bottom: 0;font-size:small; ">{{$postCount}}</p>
+                                                </div> <img class="image_grid_img" src="/storage/posts/post1.jpg"
+                                                    alt="">
+
+                                            </div>
+
+                                        </td>
+                                        <td id="sticky_title_td"
+                                            style="vertical-align: top;padding-left:0px;padding-top:0px;">
+                                            <h3 style="margin-top: 0;" id="sticky_title" class="title_grid_">
+                                                Lorem Ispsum PosLorem Ispsum PosLorem Isps
+                                            </h3>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-bottom: 0;padding-left: 0;">
+                                            <p style="margin-bottom:0px;" id="sticky_subtitle" class="date_grid_">
+                                                (music)
+                                                12 junho, 2020</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <?php $postCount++; ?>
+                        <?php $count++; ?>
+                        @endforeach
                     </div>
 
 
