@@ -57,9 +57,6 @@
     }
 
     @media only screen and (max-width: 600px) {
-        .sticky_title {
-            font-size: 3.5vw;
-        }
 
 
         .sliderText {
@@ -128,9 +125,24 @@
 
 
     @media only screen and (min-width: 600px) {
-        .sticky_title {
+        #sticky_title {
+            font-size: 1vw;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        #sticky_title_td {
+            padding-bottom: 0;
+        }
+
+        #image_grid {
+            width: 50%
+        }
+
+        #sticky_subtitle {
             font-size: .8vw;
         }
+
 
         .related__item {
             float: left;
@@ -304,7 +316,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="padding-bottom: 0;">
+                            <td style="padding-bottom: 0;padding-left: 0;">
                                 <p style="margin-bottom:0px;" class="date_grid_">({{$post->category->name}})
                                     {{ Date::parse($post->created_at)->format('d F, Y') }}</p>
                             </td>
@@ -322,7 +334,7 @@
     </div>
 
     <div class="masonry-wrap">
-        <div class="row" style="margin-left: 0;padding-left: 0;">
+        <div class="row col-12" style="margin-left: 0;padding-left: 0;width:100%;">
 
             <div class="column large-8 tab-full">
 
@@ -352,7 +364,7 @@
                 <?php $count = 0; ?>
                 @foreach ($posts as $post)
 
-                <div class="column large-10" style="padding-right: 0px; padding-left: 0px;">
+                <div class="column" style="padding-right: 0px; padding-left: 0px;">
                     <div class="table-responsive">
 
                         <table style="margin-bottom: 0px;">
@@ -363,12 +375,13 @@
                                         <img class="image_grid_img" src="/storage/posts/post1.jpg" alt="">
                                     </td>
                                     <td style="vertical-align: top;padding-left:0px;padding-top:0px;">
-                                        <h3 style="margin-top: 0;" class="title_grid_">Lorem Ipsum Post
+                                        <h3 style="margin-top: 0;" class="title_grid_">Lorem Ispsum PosLorem Ispsum
+                                            PosLorem Ispsu
                                         </h3>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="padding-bottom: 0;">
+                                    <td style="padding-bottom: 0;padding-left: 0;">
                                         <p style="margin-bottom:0px;" class="date_grid_">(music)
                                             12 junho, 2020</p>
                                     </td>
@@ -387,14 +400,14 @@
 
             {{-- StickySideBar --}}
 
-            <div class="column large-4 tab-full">
+            <div class="column large-4 tab-full" style="padding-right: 0;">
 
                 <aside class="sidebar fixedsticky">
                     <hr style="margin-top: 0;">
                     <h6 style="margin-top: 0;margin-bottom: 2em;"> &#9899; POPULARES</h6>
 
 
-
+                    {{--
                     <table class="table table-dark">
                         <tbody>
                             <tr>
@@ -414,8 +427,33 @@
                             </tr>
 
                         </tbody>
-                    </table>
+                    </table> --}}
+                    <div class="table-responsive">
 
+                        <table style="margin-bottom: 0px;">
+
+                            <tbody>
+                                <tr>
+                                    <td class="image_   grid_" id="image_grid_" rowspan="2" style="padding: 0; ">
+                                        <img class="image_grid_img" src="/storage/posts/post1.jpg" alt="">
+                                    </td>
+                                    <td id="sticky_title_td"
+                                        style="vertical-align: top;padding-left:0px;padding-top:0px;">
+                                        <h3 style="margin-top: 0;" id="sticky_title" class="title_grid_">
+                                            Lorem Ispsum PosLorem Ispsum PosLorem Isps
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding-bottom: 0;padding-left: 0;">
+                                        <p style="margin-bottom:0px;" id="sticky_subtitle" class="date_grid_">(music)
+                                            12 junho, 2020</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
 
 
                 </aside>
