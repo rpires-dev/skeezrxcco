@@ -1,0 +1,229 @@
+
+    .text-block {
+        position: absolute;
+        bottom: auto;
+        left: 0;
+        background-color: black;
+        color: white;
+        padding-left: 12px;
+        padding-right: 12px;
+
+    }
+
+    .table_sticky {
+
+        margin-bottom: .5em;
+    }
+
+    /* .masonry .entry__text {
+        padding: 1.2rem 0.8rem 4rem;
+        background-color: #ffffff;
+        padding-left: 0px;
+        padding-bottom: 1px;
+    } */
+
+    .sidebar {
+        display: inline-block;
+
+        vertical-align: top;
+    }
+
+    /* loaded fixed-sticky polyfill
+	https://github.com/filamentgroup/fixed-sticky */
+    .fixedsticky {
+        top: 0;
+    }
+
+    .format-gallery .slick-dots {
+        text-align: right;
+        margin: 0;
+        padding: 0 2rem 0 2.4rem;
+        position: relative;
+        top: auto;
+        bottom: 8.6rem;
+        left: 0;
+    }
+
+    .responsive {
+        width: 100%;
+        height: auto;
+    }
+
+    th,
+    td {
+
+        text-align: left;
+        border-bottom: 1px solid #e0e0e000;
+    }
+
+    th:first-child,
+    td:first-child {
+        width: 60%;
+        padding-left: 0;
+    }
+
+    .table-responsive {
+        min-height: 10em;
+        display: table-cell;
+        vertical-align: middle
+    }
+
+    @media only screen and (max-width: 600px) {
+
+
+        .sliderText {
+            background-color: white;
+            padding-left: .4em;
+            margin-top: 2rem;
+            margin-bottom: 0;
+            font-size: 32px;
+            font-weight: bolder;
+        }
+
+        .format-gallery .slick-dots {
+            text-align: left;
+            margin: 0;
+            padding: 0 2rem 0 2.4rem;
+            position: relative;
+            top: auto;
+            bottom: 2.4rem;
+            left: 0;
+        }
+
+        .category_ {
+            margin-top: 0.4rem;
+            padding-left: 1.5em;
+
+        }
+
+        .title_grid_ {
+            font-size: 3.5vw;
+            margin-top: 0;
+        }
+
+        .image_grid_ {
+            width: 44%;
+            padding: 0;
+        }
+
+        .image_grid_img {
+            max-width: 90%;
+        }
+
+        .date_grid_ {
+            font-size: 2.7vw;
+        }
+
+
+
+        hr {
+            border: solid #151515;
+            border-width: 1px 0 0;
+            clear: both;
+            margin: -3.6rem 0 1.6rem;
+            height: 0;
+        }
+
+        th:first-child,
+        td:first-child {
+            width: 50%;
+            padding-left: 0;
+        }
+
+
+
+
+
+        th:first-child,
+        td:first-child {
+            width: 50%;
+            padding-left: 11px;
+        }
+
+
+        th:first-child,
+        td:first-child {
+            width: 50%;
+            padding-left: 0;
+        }
+
+        .responsive {
+            width: 100%;
+            height: auto;
+        }
+
+        .text-center {
+            padding-left: 19%;
+            text-align: center;
+            padding-right: 19%;
+
+            margin-bottom: 3em;
+            margin-top: 0;
+            width: 81%;
+            font-size: 4vw;
+        }
+    }
+
+
+    @media only screen and (min-width: 600px) {
+        #sticky_title {
+            font-size: 1vw;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        #sticky_title_td {
+            padding-bottom: 0;
+        }
+
+        #image_grid {
+            width: 50%
+        }
+
+        #sticky_subtitle {
+            font-size: .8vw;
+        }
+
+
+        .related__item {
+            float: left;
+            width: 33.33333%;
+            padding-left: 4rem;
+            margin-bottom: 3.2rem;
+            height: 265px;
+        }
+
+        .image_grid_img {
+            max-width: 92%;
+        }
+
+        .sliderText {
+            margin-top: 22px;
+            font-size: 50px;
+        }
+
+        th:first-child,
+        td:first-child {
+            /* width: 50%; */
+            padding-left: 11px;
+            width: 302px;
+        }
+
+
+
+        .text-center {
+            padding-left: 19%;
+            text-align: center;
+            padding-right: 19%;
+            color: antiquewhite;
+            margin-bottom: 3em;
+            width: 81%;
+            font-size: 2.5vw;
+        }
+
+        .responsive {
+            width: 100%;
+            height: auto;
+        }
+    }
+

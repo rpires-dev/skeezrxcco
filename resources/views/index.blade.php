@@ -6,248 +6,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdn.rawgit.com/filamentgroup/fixed-sticky/master/fixedsticky.css">
+<link rel="stylesheet" href="/css/custom.css">
 @endsection
 
-<style>
-    .text-block {
-        position: absolute;
-        bottom: auto;
-        left: 0;
-        background-color: black;
-        color: white;
-        padding-left: 12px;
-        padding-right: 12px;
-        font-size:
-        ;
-    }
 
-    .table_sticky {
-
-        margin-bottom: .5em;
-    }
-
-    .masonry .entry__text {
-        padding: 1.2rem 0.8rem 4rem;
-        background-color: #ffffff;
-        padding-left: 0px;
-        padding-bottom: 1px;
-    }
-
-    .sidebar {
-        display: inline-block;
-
-        vertical-align: top;
-    }
-
-    /* loaded fixed-sticky polyfill
-	https://github.com/filamentgroup/fixed-sticky */
-    .fixedsticky {
-        top: 0;
-    }
-
-    .format-gallery .slick-dots {
-        text-align: right;
-        margin: 0;
-        padding: 0 2rem 0 2.4rem;
-        position: relative;
-        top: auto;
-        bottom: 8.6rem;
-        left: 0;
-    }
-
-    .responsive {
-        width: 100%;
-        height: auto;
-    }
-
-    th,
-    td {
-
-        text-align: left;
-        border-bottom: 1px solid #e0e0e000;
-    }
-
-    th:first-child,
-    td:first-child {
-        width: 60%;
-        padding-left: 0;
-    }
-
-    @media only screen and (max-width: 600px) {
-
-
-        .sliderText {
-            background-color: white;
-            padding-left: .4em;
-            margin-top: 2rem;
-            margin-bottom: 0;
-            font-size: 32px;
-            font-weight: bolder;
-        }
-
-        .format-gallery .slick-dots {
-            text-align: left;
-            margin: 0;
-            padding: 0 2rem 0 2.4rem;
-            position: relative;
-            top: auto;
-            bottom: 2.4rem;
-            left: 0;
-        }
-
-        .category_ {
-            margin-top: 0.4rem;
-            padding-left: 1.5em;
-
-        }
-
-        .title_grid_ {
-            font-size: 3.5vw;
-            margin-top: 0;
-        }
-
-        .image_grid_ {
-            width: 44%;
-            padding: 0;
-        }
-
-        .image_grid_img {
-            max-width: 90%;
-        }
-
-        .date_grid_ {
-            font-size: 2.7vw;
-        }
-
-
-
-        hr {
-            border: solid #151515;
-            border-width: 1px 0 0;
-            clear: both;
-            margin: -3.6rem 0 1.6rem;
-            height: 0;
-        }
-
-        th:first-child,
-        td:first-child {
-            width: 50%;
-            padding-left: 0;
-        }
-
-
-
-    }
-
-
-
-    @media only screen and (min-width: 600px) {
-        #sticky_title {
-            font-size: 1vw;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        #sticky_title_td {
-            padding-bottom: 0;
-        }
-
-        #image_grid {
-            width: 50%
-        }
-
-        #sticky_subtitle {
-            font-size: .8vw;
-        }
-
-
-        .related__item {
-            float: left;
-            width: 33.33333%;
-            padding-left: 4rem;
-            margin-bottom: 3.2rem;
-            height: 265px;
-        }
-
-        .image_grid_img {
-            max-width: 92%;
-        }
-
-        .sliderText {
-            margin-top: 22px;
-            font-size: 50px;
-        }
-
-        th:first-child,
-        td:first-child {
-            /* width: 50%; */
-            padding-left: 11px;
-            width: 302px;
-        }
-    }
-
-    .table-responsive {
-        min-height: 10em;
-        display: table-cell;
-        vertical-align: middle
-    }
-
-    @media only screen and (max-width: 600px) {
-
-        th:first-child,
-        td:first-child {
-            width: 50%;
-            padding-left: 11px;
-        }
-    }
-</style>
-
-<style>
-    @media only screen and (max-width: 600px &) {
-
-        th:first-child,
-        td:first-child {
-            width: 50%;
-            padding-left: 0;
-        }
-
-        .responsive {
-            width: 100%;
-            height: auto;
-        }
-
-        .text-center {
-            padding-left: 19%;
-            text-align: center;
-            padding-right: 19%;
-
-            margin-bottom: 3em;
-            margin-top: 0;
-            width: 81%;
-            font-size: 4vw;
-        }
-    }
-
-
-    @media only screen and (min-width: 600px) {
-
-
-        .text-center {
-            padding-left: 19%;
-            text-align: center;
-            padding-right: 19%;
-            color: antiquewhite;
-            margin-bottom: 3em;
-            width: 81%;
-            font-size: 2.5vw;
-        }
-
-        .responsive {
-            width: 100%;
-            height: auto;
-        }
-    }
-</style>
 <div class="s-content" style="background-color: white;">
 
     {{-- Hero Slider --}}
@@ -505,14 +267,13 @@
             <div class="grid-sizer"></div>
 
         </div> <!-- end masonry -->
-        <hr>
-        <div class="row">
-
+        <div class="col-12" style="padding: 20px;">
+            <hr>
             <h6 style="margin-top: 0;margin-bottom: 2em;"> &#9899; Musicas</h6>
-
-
             <ul class="related">
-
+                <?php $count = 0; ?>
+                @foreach ($posts as $post)
+                <?php if($count == 3) break; ?>
                 <li class="related__item">
 
                     <a href="single-standard.html" class="related__link">
@@ -520,47 +281,25 @@
                             style="height: 147px;width: 300px;object-fit: cover;">
                     </a>
 
-                    <h5 class="related__post-title" style="margin-top: 1em;">Using Repetition and Patterns in
-                        Photography.</h5>
-                    <p>(Music) 12 fev </p>
+                    <div style="height: 50px;width: 270px;">
+                        <h5 class="related__post-title"
+                            style="margin-top: 1em;Adidas comes out with a new pair to celebrate skeezrxcco NY store launch">
+                            Jet Set Reintroduces Denim & ‘80s Skiwear Prints for SS20</h5>
+                    </div>
+                    <p class="maisEm_p">(Music) 12 fev </p>
                 </li>
-                <li class="related__item">
-                    <a href="single-standard.html" class="related__link">
-                        <img src="images/thumbs/masonry/walk-600.jpg" alt=""
-                            style="height: 147px;width: 300px;object-fit: cover;">
-                    </a>
-
-                    <span>
-                        <h5 class="related__post-title" style="margin-top: 1em;"> and Patterns in
-                            Photography.</h5>
-                        <p>(Music) 12 fev </p>
-                    </span>
-                </li>
-                <li class="related__item">
-                    <a href="single-standard.html" class="related__link">
-                        <img src="images/thumbs/masonry/walk-600.jpg" alt=""
-                            style="height: 147px;width: 300px;object-fit: cover;">
-                    </a>
-
-                    <h5 class="related__post-title" style="margin-top: 1em;">Using Repetition and Patterns in
-                        Photography.</h5>
-                    <p>(Music) 12 fev </p>
-                </li>
-
-
-
+                <?php $count++; ?>
+                @endforeach
             </ul>
-            <a class="btn btn--primary full-width" href="#0">Ver todos em Musicas </a>
-
+            <div> <a class="btn btn--primary full-width" href="#0">Ver todos em Musicas </a></div>
         </div>
-        <hr>
-        <div class="row">
-
+        <div class="col-12" style="padding: 20px;">
+            <hr>
             <h6 style="margin-top: 0;margin-bottom: 2em;"> &#9899; Ténis</h6>
-
-
             <ul class="related">
-
+                <?php $count = 0; ?>
+                @foreach ($posts as $post)
+                <?php if($count == 3) break; ?>
                 <li class="related__item">
 
                     <a href="single-standard.html" class="related__link">
@@ -568,48 +307,25 @@
                             style="height: 147px;width: 300px;object-fit: cover;">
                     </a>
 
-                    <h5 class="related__post-title" style="margin-top: 1em;">Using Repetition and Patterns in
-                        Photography.</h5>
-                    <p>(Music) 12 fev </p>
+                    <div style="height: 50px;width: 270px;">
+                        <h5 class="related__post-title"
+                            style="margin-top: 1em;Adidas comes out with a new pair to celebrate skeezrxcco NY store launch">
+                            Jet Set Reintroduces Denim & ‘80s Skiwear Prints for SS20</h5>
+                    </div>
+                    <p class="maisEm_p">(Music) 12 fev </p>
                 </li>
-                <li class="related__item">
-                    <a href="single-standard.html" class="related__link">
-                        <img src="images/thumbs/masonry/walk-600.jpg" alt=""
-                            style="height: 147px;width: 300px;object-fit: cover;">
-                    </a>
-
-                    <span>
-                        <h5 class="related__post-title" style="margin-top: 1em;"> and Patterns in
-                            Photography.</h5>
-                        <p>(Music) 12 fev </p>
-                    </span>
-                </li>
-                <li class="related__item">
-                    <a href="single-standard.html" class="related__link">
-                        <img src="images/thumbs/masonry/walk-600.jpg" alt=""
-                            style="height: 147px;width: 300px;object-fit: cover;">
-                    </a>
-
-                    <h5 class="related__post-title" style="margin-top: 1em;">Using Repetition and Patterns in
-                        Photography.</h5>
-                    <p>(Music) 12 fev </p>
-                </li>
-
-
-
+                <?php $count++; ?>
+                @endforeach
             </ul>
-            <a class="btn btn--primary full-width" href="#0">Ver todos em Ténis </a>
-
+            <div> <a class="btn btn--primary full-width" href="#0">Ver todos em Ténis </a></div>
         </div>
-
-        <hr>
-        <div class="row">
-
+        <div class="col-12" style="padding: 20px;">
+            <hr>
             <h6 style="margin-top: 0;margin-bottom: 2em;"> &#9899; Hacktivismo</h6>
-
-
             <ul class="related">
-
+                <?php $count = 0; ?>
+                @foreach ($posts as $post)
+                <?php if($count == 3) break; ?>
                 <li class="related__item">
 
                     <a href="single-standard.html" class="related__link">
@@ -617,38 +333,17 @@
                             style="height: 147px;width: 300px;object-fit: cover;">
                     </a>
 
-                    <h5 class="related__post-title" style="margin-top: 1em;">Using Repetition and Patterns in
-                        Photography.</h5>
-                    <p>(Music) 12 fev </p>
+                    <div style="height: 50px;width: 270px;">
+                        <h5 class="related__post-title"
+                            style="margin-top: 1em;Adidas comes out with a new pair to celebrate skeezrxcco NY store launch">
+                            Jet Set Reintroduces Denim & ‘80s Skiwear Prints for SS20</h5>
+                    </div>
+                    <p class="maisEm_p">(Music) 12 fev </p>
                 </li>
-                <li class="related__item">
-                    <a href="single-standard.html" class="related__link">
-                        <img src="images/thumbs/masonry/walk-600.jpg" alt=""
-                            style="height: 147px;width: 300px;object-fit: cover;">
-                    </a>
-
-                    <span>
-                        <h5 class="related__post-title" style="margin-top: 1em;"> and Patterns in
-                            Photography.</h5>
-                        <p>(Music) 12 fev </p>
-                    </span>
-                </li>
-                <li class="related__item">
-                    <a href="single-standard.html" class="related__link">
-                        <img src="images/thumbs/masonry/walk-600.jpg" alt=""
-                            style="height: 147px;width: 300px;object-fit: cover;">
-                    </a>
-
-                    <h5 class="related__post-title" style="margin-top: 1em;">Using Repetition and Patterns in
-                        Photography.</h5>
-                    <p>(Music) 12 fev </p>
-                </li>
-
-
-
+                <?php $count++; ?>
+                @endforeach
             </ul>
-            <a class="btn btn--primary full-width" href="#0">Ver todos em Hacktivismo </a>
-
+            <div> <a class="btn btn--primary full-width" href="#0">Ver todos em Hacktivismo </a></div>
         </div>
 
 
