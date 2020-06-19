@@ -36,16 +36,16 @@
                 <span class="screen-reader-text">Twitter</span>
             </a>
         </li>
-        <li class="ss-dribbble">
+        <li class="ss-instagram">
             <a href="#0">
-                <span class="screen-reader-text">Dribbble</span>
+                <span class="screen-reader-text">Instagram</span>
             </a>
         </li>
-        <li class="ss-pinterest">
+        {{-- <li class="ss-pinterest">
             <a href="#0">
                 <span class="screen-reader-text">Behance</span>
             </a>
-        </li>
+        </li> --}}
     </ul>
 
 </nav> <!-- end header__nav-wrap -->
