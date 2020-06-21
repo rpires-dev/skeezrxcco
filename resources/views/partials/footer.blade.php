@@ -1,16 +1,7 @@
-@section('css')
 <link rel="stylesheet" href="/css/custom_footer.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-@endsection
-<style>
-    #related__item {
-        text-align: left;
-        float: left;
-        width: 23.33333%;
 
-    }
-</style>
 <footer class="s-footer">
     <div class="row" style="align-items: center;">
         <div class="column large-6 tab-full">
@@ -48,10 +39,55 @@
     </div>
 
     <div class="column large-full footer__content">
-        <hr>
+
+        <div class="accordion-container">
+
+            <div class="set">
+                <a href="javascript:void(0)">
+                    Vestibulum
+                    <i class="fa fa-plus"></i>
+                </a>
+                <div class="content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna.</p>
+                </div>
+            </div>
+            <div class="set">
+                <a href="javascript:void(0)">
+                    Phasellus
+                    <i class="fa fa-plus"></i>
+                </a>
+                <div class="content">
+                    <p> Aliquam cursus vitae nulla non rhoncus. Nunc condimentum erat nec dictum tempus. Suspendisse
+                        aliquam erat hendrerit vehicula vestibulum.</p>
+                </div>
+            </div>
+            <div class="set">
+                <a href="javascript:void(0)">
+                    Praesent
+                    <i class="fa fa-plus"></i>
+                </a>
+                <div class="content">
+                    <p>Pellentesque aliquam ligula libero, vitae imperdiet diam porta vitae. sed do eiusmod tempor
+                        incididunt ut labore et dolore magna.</p>
+                </div>
+            </div>
+            <div class="set">
+                <a href="javascript:void(0)">
+                    Curabitur
+                    <i class="fa fa-plus"></i>
+                </a>
+                <div class="content">
+                    <p> Donec tincidunt consectetur orci at dignissim. Proin auctor aliquam justo, vitae luctus odio
+                        pretium scelerisque. </p>
+                </div>
+            </div>
+        </div>
+
     </div>
-    {{-- Min 600 Px Content --}}
+    {{-- Min 600 Px Content(large screens) --}}
     <div class="column large-full footer__content">
+        <hr>
         <div class="col-12" style="padding: 100px;padding-top:20px;">
 
 
@@ -132,11 +168,11 @@
             </ul>
 
         </div>
+        <hr>
     </div>
 
 
-
-
+    {{-- Direitos de autor e agradecimentos a typeRite--}}
     <div class="row">
 
         <div class="column large-full footer__content">
@@ -157,12 +193,7 @@
         <a class="smoothscroll" title="Back to Top" href="#top"></a>
     </div>
 </footer>
-@section('js')
-
 <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script type="text/javascript">
-    $(document).ready( function() {$( '.sidebar' ).fixedsticky();  });
-</script>
 <script type="text/javascript">
     $(document).ready(function() {
   $(".set > a").on("click", function() {
@@ -193,5 +224,10 @@
 });
 
 </script>
+@section('js')
+
+
+
+
 
 @endsection
