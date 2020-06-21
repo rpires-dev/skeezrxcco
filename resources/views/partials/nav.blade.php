@@ -25,7 +25,7 @@
         </li>
     </ul> <!-- end header__nav -->
 
-    <ul class="header__social">
+    {{-- <ul class="header__social">
         <li class="ss-facebook">
             <a href="https://facebook.com/">
                 <span class="screen-reader-text">Facebook</span>
@@ -46,6 +46,6 @@
                 <span class="screen-reader-text">Behance</span>
             </a>
         </li> --}}
-    </ul>
+    </ul> --}}
 
 </nav> <!-- end header__nav-wrap -->

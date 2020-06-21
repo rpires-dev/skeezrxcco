@@ -5,8 +5,8 @@
 <footer class="s-footer">
     <div class="row" style="align-items: center;">
         <div class="column large-6 tab-full">
-            <div style="text-align: left;"> <img src="skrIcon.svg" alt=""
-                    style="width: 17%;height:auto;text-align:left;"></div>
+            <div class="footerLogoContainer">
+                <img src="/skrIcon.svg" class="footerLogo" alt="logo"></div>
         </div>
 
         <div class="column large-6 tab-full">
@@ -38,55 +38,108 @@
 
     </div>
 
-    <div class="column large-full footer__content">
+    <div id="sm-FooterMenu" class="column large-full footer__content">
 
         <div class="accordion-container">
+            <hr style="border: solid #dededf;border-width: 1px 0 0;margin-bottom: auto;">
+            <div class="set">
+                <a href="javascript:void(0)">
+                    Skeezrxcco
+                    <i class="fa fa-plus"></i>
+                </a>
+                <div class="content">
 
-            <div class="set">
-                <a href="javascript:void(0)">
-                    Vestibulum
-                    <i class="fa fa-plus"></i>
-                </a>
-                <div class="content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna.</p>
+                    <div class="footer_item_content"> <a href="#">
+                            <p class="footer_item" id="footer_item_sm">Contacto </p>
+                        </a>
+                        <a href="#">
+                            <p class="footer_item" id="footer_item_sm">Sobre </p>
+                        </a>
+                        <a href="#">
+                            <p class="footer_item" id="footer_item_sm">Publicidade </p>
+                        </a>
+                        <a href="#">
+                            <p class="footer_item" id="footer_item_sm">Arquivos </p>
+                        </a>
+
+                    </div>
                 </div>
             </div>
             <div class="set">
                 <a href="javascript:void(0)">
-                    Phasellus
+                    Secções
                     <i class="fa fa-plus"></i>
                 </a>
                 <div class="content">
-                    <p> Aliquam cursus vitae nulla non rhoncus. Nunc condimentum erat nec dictum tempus. Suspendisse
-                        aliquam erat hendrerit vehicula vestibulum.</p>
+                    <div class="footer_item_content"> <a href="#">
+                            <a href="">
+                                <p class="footer_item" id="footer_item_sm">Seleções</p>
+                            </a> <a href="">
+                                <p class="footer_item" id="footer_item_sm">Vidas</p>
+                            </a> <a href="">
+                                <p class="footer_item" id="footer_item_sm">Estilos</p>
+                            </a> <a href="">
+                                <p class="footer_item" id="footer_item_sm">Artistas</p>
+                            </a>
+                    </div>
                 </div>
             </div>
             <div class="set">
                 <a href="javascript:void(0)">
-                    Praesent
+                    Adições
                     <i class="fa fa-plus"></i>
                 </a>
                 <div class="content">
-                    <p>Pellentesque aliquam ligula libero, vitae imperdiet diam porta vitae. sed do eiusmod tempor
-                        incididunt ut labore et dolore magna.</p>
+                    <div class="footer_item_content"> <a href="#">
+                            <a href="">
+                                <p class="footer_item" id="footer_item_sm"> Revista
+                                </p>
+                            </a>
+                            <a href="">
+                                <p class="footer_item" id="footer_item_sm"> Videos
+                                </p>
+                            </a> </a>
+                        <a href="">
+                            <p class="footer_item" id="footer_item_sm"> Podcasts
+                            </p>
+                        </a>
+                        <a href="">
+                            <p class="footer_item" id="footer_item_sm"> Newsletter
+                            </p>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="set">
                 <a href="javascript:void(0)">
-                    Curabitur
+                    Loja
                     <i class="fa fa-plus"></i>
                 </a>
                 <div class="content">
-                    <p> Donec tincidunt consectetur orci at dignissim. Proin auctor aliquam justo, vitae luctus odio
-                        pretium scelerisque. </p>
+                    <div class="footer_item_content"> <a href="#">
+                            <a href="">
+                                <p class="footer_item" id="footer_item_sm">A minha conta </p>
+                            </a>
+                            <a href="">
+                                <p class="footer_item" id="footer_item_sm">Termos e Condições </p>
+                            </a>
+                            <a href="">
+                                <p class="footer_item" id="footer_item_sm">Entregas e devoluções </p>
+                            </a>
+                            <a href="">
+                                <p class="footer_item" id="footer_item_sm">FAQ</p>
+                            </a>
+                            <a href="">
+                                <p class="footer_item" id="footer_item_sm">Serviço cliente </p>
+                            </a>
+                    </div>
                 </div>
             </div>
         </div>
 
     </div>
     {{-- Min 600 Px Content(large screens) --}}
-    <div class="column large-full footer__content">
+    <div id="lg-FooterMenu" class="column large-full footer__content" style="padding-bottom:10em;">
         <hr>
         <div class="col-12" style="padding: 100px;padding-top:20px;">
 
@@ -172,21 +225,27 @@
     </div>
 
 
+
     {{-- Direitos de autor e agradecimentos a typeRite--}}
-    <div class="row">
+    <div class="column large-full footer__content" id="credits_footer">
 
-        <div class="column large-full footer__content">
-            <div class="footer__copyright">
-                <span>© Direitos de autor skeezrxcco 2020</span>
-                <span>Desenhado por <a href="#">Ricardo Pires</a></span>
+        <div class="col-12">
 
+
+            <div class="column large-full footer__content">
+                <div class="footer__copyright">
+                    <span>© Direitos de autor skeezrxcco 2020</span>
+                    <span>Desenhado por <a href="#">Ricardo Pires</a></span>
+
+                </div>
+            </div>
+            <div class="column large-full footer__content">
+                <div class="footer__copyright">
+                    <span>Agradecimentos a <a href="https://www.styleshout.com/">StyleShout</a></span>
+                </div>
             </div>
         </div>
-        <div class="column large-full footer__content">
-            <div class="footer__copyright">
-                <span>Agradecimentos a <a href="https://www.styleshout.com/">StyleShout</a></span>
-            </div>
-        </div>
+
     </div>
 
     <div class="go-top">
