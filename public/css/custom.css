@@ -166,6 +166,7 @@
 
 
     @media only screen and (min-width: 600px) {
+
         #sticky_title {
             font-size: 1vw;
             margin-bottom: 0;
@@ -185,13 +186,16 @@
         }
 
 
-        .related__item {
+        /* .related__item {
             float: left;
             width: 33.33333%;
             padding-left: 4rem;
             margin-bottom: 3.2rem;
             height: 265px;
-        }
+        } */
+
+
+
 
         .image_grid_img {
             max-width: 92%;

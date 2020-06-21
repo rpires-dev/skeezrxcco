@@ -53,12 +53,12 @@
 
 
     </article> <!-- end column large-full entry-->
-    {{-- VeryHot News --}}
+    {{-- DoubleGrid News --}}
     <div class="masonry-wrap">
         <div class="masonry">
             <div class="grid-sizer"></div>
             <?php $count = 0; ?>
-            @foreach ($slidePosts as $post)
+            @foreach ($doubleGrid as $post)
             <?php if($count == 2) break; ?>
             @include('partials.post_no_desc',['post' => $post])
             <?php $count++; ?>
@@ -76,7 +76,7 @@
             <p style="margin-top: 2px;"> <span> &#x26A1;</span> Ultimas noticas</p>
         </div>
         <?php $count = 0; ?>
-        @foreach ($posts as $post)
+        @foreach ($latests as $post)
         <?php if($count == 3) break; ?>
         <div class="column large-full">
             <div class="table-responsive">
@@ -349,6 +349,9 @@
 
     </div>
 </div>
+
+
+
 
 @section('js')
 <script type='text/javascript' src='http://code.jquery.com/jquery-1.11.0.min.js'></script>

@@ -1237,6 +1237,15 @@ input::-moz-focus-inner {
   position: relative;
   height: 100%;
 }
+.footer_text{
+
+    font-size: 17px;
+}
+
+.footer_item{
+    margin: 0;
+    font-size: 12px;
+}
 
 .skill-bars li .progress span {
   position: absolute;
@@ -2436,13 +2445,14 @@ input::-moz-focus-inner {
 /* -------------------------------------------------------------------
  * ## header social
  * ------------------------------------------------------------------- */
-.header__social {
-  list-style: none;
-  margin: 4rem 0 0 0;
-  padding: 0 0 4.4rem 0;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
+ .header__social {
+    float: right;
+    list-style: none;
+    margin: 4rem 0 0 0;
+    padding: 0 0 4.4rem 0;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
 }
 
 .header__social li {
@@ -2454,13 +2464,13 @@ input::-moz-focus-inner {
 }
 
 .header__social a {
-  display: block;
-  background-color: rgba(255, 255, 255, 0.04);
-  color: rgba(255, 255, 255, 0.5);
-  height: 3.6rem;
-  width: 3.6rem;
-  border-radius: 50%;
-  position: relative;
+    display: block;
+    background-color:black;
+    color: rgba(255, 255, 255, 0.5);
+    height: 3.6rem;
+    width: 3.6rem;
+    border-radius: 50%;
+    position: relative;
 }
 
 .header__social a::after {
@@ -3302,6 +3312,7 @@ body.search-is-visible {
   padding-left: 4rem;
   margin-bottom: 3.2rem;
 }
+
 
 .related__link {
   display: block;

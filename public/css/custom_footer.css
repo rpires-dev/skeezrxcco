@@ -1,0 +1,24 @@
+
+    #related_footer{
+        text-align: left;
+    }
+    @media only screen and (max-width: 600px) {
+        #related__item {
+            text-align: left;
+            float: left;
+            width: 60%;
+
+        }}
+
+
+
+    @media only screen and (min-width: 600px) {
+        #related__item {
+            text-align: left;
+            float: left;
+            width: 23.33333%;
+
+        }
+    }
+
+

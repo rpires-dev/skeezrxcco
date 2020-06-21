@@ -37,11 +37,12 @@ class Post extends Model
         return static::where('slug', $slug)->firstOrFail();
     }
 
+    // SEARCH FUNCTIONS
     public static function findByCat_id($category_id)
     {
         return static::where('category_id', $category_id)->get();
     }
-
+    // SINGLE POST FUNCTIONS
     public static function previousPost($post)
     {
         return static::where('id', '<', $post->id)->orderBy('id', 'desc')->first();
@@ -50,12 +51,31 @@ class Post extends Model
     {
         return static::where('id', '>', $post->id)->orderBy('id')->first();
     }
-
     public static function relatedPosts($post)
     {
         return static::where([
             ['category_id', '=', $post->id],
             ['id', '!=', $post->id],
         ])->limit(3)->get();
+    }
+
+
+
+    // LANDING PAGE FUNCTIONS
+    public static function featured()
+    {
+        return static::where('featured', 1)->orderBy('id', 'desc')->take(3)->get();
+    }
+    public static function doubleGrid()
+    {
+        return static::where('featured', 1)->orderBy('id', 'desc')->skip(3)->take(2)->get();
+    }
+    public static function latest()
+    {
+        return static::where('featured', 0)->orderBy('id', 'desc')->get();
+    }
+    public static function featuredSingle()
+    {
+        return static::where('featured', 1)->orderBy('id', 'desc')->skip(5)->take(1)->get();
     }
 }

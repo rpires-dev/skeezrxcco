@@ -18,11 +18,14 @@ class LandingPageController extends Controller
     {
         Date::setLocale('pt');
 
-        $gridPosts = Post::all()->random(3);
-        $slidePosts = Post::orderBy('created_at', 'desc')->limit(3)->get();
-        // $posts = Post::paginate(10);
+
         $posts = Post::all();
-        $post = Post::all()->random(3);
+        // Hero principal
+        $gridPosts = Post::featured();
+
+        $doubleGrid = Post::doubleGrid();
+        // $posts = Post::paginate(10);
+        $latests = Post::latest();
 
 
 
@@ -30,8 +33,9 @@ class LandingPageController extends Controller
             'index',
             [
                 'posts' => $posts,
-                'slidePosts' => $slidePosts,
+                'doubleGrid' => $doubleGrid,
                 'gridPosts' => $gridPosts,
+                'latests' => $latests,
 
 
             ]
