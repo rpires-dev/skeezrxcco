@@ -17,7 +17,7 @@ class TenisController extends Controller
     {
 
         Date::setLocale('pt');
-        $posts = Post::all()->random(3);
+        $posts = Post::all();
 
         return view(
             'tenis',

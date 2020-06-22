@@ -19,14 +19,20 @@ class LandingPageController extends Controller
         Date::setLocale('pt');
 
 
-        $posts = Post::all();
+        $posts = Post::lastPosts();
         // Hero principal
         $gridPosts = Post::featured();
 
         $doubleGrid = Post::doubleGrid();
-        // $posts = Post::paginate(10);
+
         $latests = Post::latest();
 
+        $featuredSingle = Post::featuredSingle();
+
+        $moreMusic = Post::moreMusic();
+        $moreTenis = Post::moreTenis();
+        $moreNovidades = Post::moreNovidades();
+        $moreHacktivismo = Post::moreHacktivismo();
 
 
         return view(
@@ -36,6 +42,11 @@ class LandingPageController extends Controller
                 'doubleGrid' => $doubleGrid,
                 'gridPosts' => $gridPosts,
                 'latests' => $latests,
+                'featuredSingle' => $featuredSingle,
+                'moreMusic' => $moreMusic,
+                'moreTenis' => $moreTenis,
+                'moreNovidades' => $moreNovidades,
+                'moreHacktivismo' => $moreHacktivismo,
 
 
             ]

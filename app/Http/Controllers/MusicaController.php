@@ -17,14 +17,17 @@ class MusicaController extends Controller
     {
 
         Date::setLocale('pt');
-        $posts = Post::all()->random(3);
+        $FeaturedMusic = Post::FeaturedMusic();
+        $FeaturedMusicGrid = Post::FeaturedMusicGrid();
+        $lastMusicPosts = Post::lastMusicPosts();
+
 
         return view(
             'musica',
             [
-                'posts' => $posts,
-
-
+                'FeaturedMusic' => $FeaturedMusic,
+                'FeaturedMusicGrid' => $FeaturedMusicGrid,
+                'lastMusicPosts' => $lastMusicPosts,
             ]
         );
     }

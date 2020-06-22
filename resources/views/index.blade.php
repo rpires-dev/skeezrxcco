@@ -73,11 +73,11 @@
             <hr>
 
 
-            <p style="margin-top: 2px;"> <span> &#x26A1;</span> Ultimas noticas</p>
+            <p style="margin-top: 2px;"> <span> &#x26A1;</span> Ultimas noticias</p>
         </div>
         <?php $count = 0; ?>
         @foreach ($latests as $post)
-        <?php if($count == 3) break; ?>
+        <?php if($count == 7) break; ?>
         <div class="column large-full">
             <div class="table-responsive">
 
@@ -114,20 +114,21 @@
 
     <div class="masonry-wrap">
         <div class="row col-12" style="margin-left: 0;padding-left: 0;width:100%;">
-
             <div class="column large-8 tab-full">
 
-
+                {{-- Last featured  --}}
+                @foreach ($featuredSingle as $post)
                 <div class="table">
                     <table class="table table-dark">
                         <tbody>
                             <tr>
                                 <td style="padding-left: 0;">
                                     <div class="d-flex flex-column-reverse">
-                                        <div><img src="images/wheel-500.jpg" alt="Nature" class="responsive" width="600"
-                                                height="400" style="max-width: 616px; ">
-                                            <h3 style="margin-top: 0;">Title</h3>
-                                            <p style="margin-bottom:0px;">(Music) 12 fev 2020</p>
+                                        <div><img src="/storage/{{ $post->image }}" alt="Nature" class="responsive"
+                                                width="600" height="400" style="max-width: 616px; ">
+                                            <h3 style="margin-top: 0;">{{$post->title}}</h3>
+                                            <p style="margin-bottom:0px;">({{$post->category->name}})
+                                                {{ Date::parse($post->created_at)->format('d F, Y') }}</p>
                                             <hr style="max-width: 616px; ">
                                         </div>
 
@@ -137,12 +138,12 @@
                             </tr>
                         </tbody>
                     </table>
-
+                    @endforeach
 
                 </div>
                 <?php $count = 0; ?>
                 @foreach ($posts as $post)
-
+                <?php if($count == 20) break; ?>
                 <div class="column" style="padding-right: 0px; padding-left: 0px;">
                     <div class="table-responsive">
 
@@ -151,18 +152,17 @@
                             <tbody>
                                 <tr>
                                     <td class="image_grid_" rowspan="2" style="padding: 0; ">
-                                        <img class="image_grid_img" src="/storage/posts/post1.jpg" alt="">
+                                        <img class="image_grid_img" src="/storage/{{$post->image}}" alt="">
                                     </td>
                                     <td style="vertical-align: top;padding-left:0px;padding-top:0px;">
-                                        <h3 style="margin-top: 0;" class="title_grid_">Lorem Ispsum PosLorem Ispsum
-                                            PosLorem Ispsu
+                                        <h3 style="margin-top: 0;" class="title_grid_">{{$post->title}}
                                         </h3>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td style="padding-bottom: 0;padding-left: 0;">
-                                        <p style="margin-bottom:0px;" class="date_grid_">(music)
-                                            12 junho, 2020</p>
+                                        <p style="margin-bottom:0px;" class="date_grid_">({{$post->category->name}})
+                                            {{ Date::parse($post->created_at)->format('d F, Y') }}</p>
                                     </td>
                                 </tr>
                             </tbody>
@@ -204,7 +204,7 @@
                                             <div class="container">
                                                 <div class="text-block">
                                                     <p style="margin-bottom: 0;font-size:small; ">{{$postCount}}</p>
-                                                </div> <img class="image_grid_img" src="/storage/posts/post1.jpg"
+                                                </div> <img class="image_grid_img" src="storage/{{$post->image}}"
                                                     alt="">
 
                                             </div>
@@ -213,15 +213,16 @@
                                         <td id="sticky_title_td"
                                             style="vertical-align: top;padding-left:0px;padding-top:0px;">
                                             <h3 style="margin-top: 0;" id="sticky_title" class="title_grid_">
-                                                Lorem Ispsum PosLorem Ispsum PosLorem Isps
+                                                {{$post->title}}
                                             </h3>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style="padding-bottom: 0;padding-left: 0;">
                                             <p style="margin-bottom:0px;" id="sticky_subtitle" class="date_grid_">
-                                                (music)
-                                                12 junho, 2020</p>
+                                                ({{$post->category->name}})
+                                                {{ Date::parse($post->created_at)->format('d F, Y') }}
+                                            </p>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -241,24 +242,13 @@
 
 
 </div>
-
+{{-- NEWSLETTER --}}
 <div class="s-content" style="background: url(images/wheel-1000.jpg);background-color:#1a1a1a;">
 
-    <h1 class=" col-8 text-center mb-5"
-        style="color: white;background:black;font-family: 'Sedgwick Ave Display', cursive;">Fica a par de tudo o que se
-        passa no
-        nosso mundo</h1>
-    <div class="row half-bottom">
-        <div class="column large-6 tab-full">
-            <input class="full-width" style="font-size: 2.6rem;background: black;" type="email" placeholder="Email"
-                id="sampleInput">
-        </div>
-        <div class="column large-6 tab-full">
-            <a class="btn full-width" href="#0">Subscrever</a>
-        </div>
-    </div>
 
+    @include('partials.newsletter')
 </div>
+{{-- More in. --}}
 <div class="s-content" style="background-color: white;">
     <div class="masonry-wrap">
 
@@ -266,84 +256,92 @@
 
             <div class="grid-sizer"></div>
 
-        </div> <!-- end masonry -->
+        </div>
+
+        {{-- More music --}}
         <div class="col-12" style="padding: 20px;">
             <hr>
             <h6 style="margin-top: 0;margin-bottom: 2em;"> &#9899; Musicas</h6>
             <ul class="related">
                 <?php $count = 0; ?>
-                @foreach ($posts as $post)
+                @foreach ($moreMusic as $post)
                 <?php if($count == 3) break; ?>
                 <li class="related__item">
 
                     <a href="single-standard.html" class="related__link">
-                        <img src="images/thumbs/masonry/walk-600.jpg" alt=""
-                            style="height: 147px;width: 300px;object-fit: cover;">
+                        <img src="/storage/{{ $post->image }}" alt=""
+                            style="height: auto;width: 300px;object-fit: cover;">
                     </a>
 
                     <div style="height: 50px;width: 270px;">
                         <h5 class="related__post-title"
                             style="margin-top: 1em;Adidas comes out with a new pair to celebrate skeezrxcco NY store launch">
-                            Jet Set Reintroduces Denim & ‘80s Skiwear Prints for SS20</h5>
+                            {{$post->title}}</h5>
                     </div>
-                    <p class="maisEm_p">(Music) 12 fev </p>
+                    <p class="maisEm_p">({{$post->category->name}})
+                        {{ Date::parse($post->created_at)->format('d F, Y') }} </p>
                 </li>
                 <?php $count++; ?>
                 @endforeach
             </ul>
-            <div> <a class="btn btn--primary full-width" href="#0">Ver todos em Musicas </a></div>
+            <div> <a class="btn btn--primary full-width" href="{{url('musica')}}">Ver todos em Musicas </a></div>
         </div>
+        {{-- More tenis --}}
         <div class="col-12" style="padding: 20px;">
             <hr>
             <h6 style="margin-top: 0;margin-bottom: 2em;"> &#9899; Ténis</h6>
             <ul class="related">
                 <?php $count = 0; ?>
-                @foreach ($posts as $post)
+                @foreach ($moreTenis as $post)
                 <?php if($count == 3) break; ?>
                 <li class="related__item">
 
                     <a href="single-standard.html" class="related__link">
-                        <img src="images/thumbs/masonry/walk-600.jpg" alt=""
-                            style="height: 147px;width: 300px;object-fit: cover;">
+                        <img src="/storage/{{ $post->image }}" alt=""
+                            style="height: auto;width: 300px;object-fit: cover;">
                     </a>
 
                     <div style="height: 50px;width: 270px;">
                         <h5 class="related__post-title"
                             style="margin-top: 1em;Adidas comes out with a new pair to celebrate skeezrxcco NY store launch">
-                            Jet Set Reintroduces Denim & ‘80s Skiwear Prints for SS20</h5>
+                            {{$post->title}}</h5>
                     </div>
-                    <p class="maisEm_p">(Music) 12 fev </p>
+                    <p class="maisEm_p">({{$post->category->name}})
+                        {{ Date::parse($post->created_at)->format('d F, Y') }} </p>
                 </li>
                 <?php $count++; ?>
                 @endforeach
             </ul>
-            <div> <a class="btn btn--primary full-width" href="#0">Ver todos em Ténis </a></div>
+            <div> <a class="btn btn--primary full-width" href="{{url('tenis')}}">Ver todos em Ténis </a></div>
         </div>
+        {{-- More hacktivismo  --}}
         <div class="col-12" style="padding: 20px;">
             <hr>
-            <h6 style="margin-top: 0;margin-bottom: 2em;"> &#9899; Hacktivismo</h6>
+            <h6 style="margin-top: 0;margin-bottom: 2em;"> &#9899; #Hacktivismo</h6>
             <ul class="related">
                 <?php $count = 0; ?>
-                @foreach ($posts as $post)
+                @foreach ($moreHacktivismo as $post)
                 <?php if($count == 3) break; ?>
                 <li class="related__item">
 
                     <a href="single-standard.html" class="related__link">
-                        <img src="images/thumbs/masonry/walk-600.jpg" alt=""
-                            style="height: 147px;width: 300px;object-fit: cover;">
+                        <img src="/storage/{{ $post->image }}" alt=""
+                            style="height: auto;width: 300px;object-fit: cover;">
                     </a>
 
                     <div style="height: 50px;width: 270px;">
                         <h5 class="related__post-title"
                             style="margin-top: 1em;Adidas comes out with a new pair to celebrate skeezrxcco NY store launch">
-                            Jet Set Reintroduces Denim & ‘80s Skiwear Prints for SS20</h5>
+                            {{$post->title}}</h5>
                     </div>
-                    <p class="maisEm_p">(Music) 12 fev </p>
+                    <p class="maisEm_p">({{$post->category->name}})
+                        {{ Date::parse($post->created_at)->format('d F, Y') }} </p>
                 </li>
                 <?php $count++; ?>
                 @endforeach
             </ul>
-            <div> <a class="btn btn--primary full-width" href="#0">Ver todos em Hacktivismo </a></div>
+            <div> <a class="btn btn--primary full-width" href="{{url('hacktivismo')}}">Ver todos em Hacktivismo </a>
+            </div>
         </div>
 
 

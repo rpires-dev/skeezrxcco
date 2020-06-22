@@ -17,7 +17,7 @@ class NovidadesController extends Controller
     {
 
         Date::setLocale('pt');
-        $posts = Post::take(2)->get();
+        $posts = Post::all();
 
         return view(
             'novidades',

@@ -50,7 +50,7 @@
     </div>
     <div class="entry__text">
         <div class="entry__header">
-            <h2 class="entry__title"><a href="/post/{{$post->slug}}">{{$post->title}}</a>
+            <h2 class="entry__title"><a href="/post/{{$post->slug}}"> {{ substr($post->title,0, 70) }}</a>
             </h2>
             <div class="entry__meta">
                 <span class="entry__meta-cat">

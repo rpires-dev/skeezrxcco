@@ -72,10 +72,67 @@ class Post extends Model
     }
     public static function latest()
     {
-        return static::where('featured', 0)->orderBy('id', 'desc')->get();
+        return static::where('featured', 0)->orderBy('id', 'desc')->take(7)->get();
     }
     public static function featuredSingle()
     {
         return static::where('featured', 1)->orderBy('id', 'desc')->skip(5)->take(1)->get();
     }
+
+    public static function lastPosts()
+    {
+        return static::orderBy('id', 'desc')->skip(7)->take(20)->get();
+    }
+
+
+    public static function moreMusic()
+    {
+        return static::where('postType_id', 1)->orderBy('id', 'desc')->take(3)->get();
+    }
+
+    public static function moreTenis()
+    {
+        return static::where('postType_id', 2)->orderBy('id', 'desc')->take(3)->get();
+    }
+
+    public static function moreNovidades()
+    {
+        return static::where('postType_id', 3)->orderBy('id', 'desc')->take(3)->get();
+    }
+
+    public static function moreHacktivismo()
+    {
+        return static::where('postType_id', 4)->orderBy('id', 'desc')->take(3)->get();
+    }
+
+
+    // MUSIC PAGE FUNCTIONS
+
+
+
+    public static function FeaturedMusic()
+    {
+        return static::where([
+            ['postType_id', 1],
+            ['featured', 1],
+        ])->orderBy('id', 'desc')->take(1)->get();
+    }
+
+    public static function FeaturedMusicGrid()
+    {
+        return static::where([
+            ['postType_id', 1],
+            ['featured', 1],
+        ])->orderBy('id', 'desc')->skip(1)->take(4)->get();
+    }
+    public static function lastMusicPosts()
+    {
+        return static::where([
+            ['postType_id', 1],
+            ['featured', 0],
+        ])->orderBy('id', 'desc')->get();
+    }
+
+
+    // TENIS PAGE FUNCTIONS
 }
