@@ -42,6 +42,9 @@ class Post extends Model
     {
         return static::where('category_id', $category_id)->get();
     }
+
+
+
     // SINGLE POST FUNCTIONS
     public static function previousPost($post)
     {
@@ -55,6 +58,14 @@ class Post extends Model
     {
         return static::where([
             ['category_id', '=', $post->id],
+            ['id', '!=', $post->id],
+        ])->limit(3)->get();
+    }
+
+    public static function Recomendado($post)
+    {
+        return static::where([
+            ['postType_id', '=', $post->postType_id],
             ['id', '!=', $post->id],
         ])->limit(3)->get();
     }
@@ -135,4 +146,10 @@ class Post extends Model
 
 
     // TENIS PAGE FUNCTIONS
+
+
+
+
+
+
 }

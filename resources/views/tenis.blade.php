@@ -132,8 +132,6 @@
                         <h5 class="related__post-title" style="margin-top: 1em;font-size: 1.2rem;">
                             {{ substr($post->title,0, 67) }}</h5>
                     </div>
-
-
                 </li>
                 <?php $counter++; ?>
                 @endforeach

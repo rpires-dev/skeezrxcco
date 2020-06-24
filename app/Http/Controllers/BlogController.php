@@ -37,17 +37,20 @@ class BlogController extends Controller
      */
     public function show($slug)
     {
+
         Date::setLocale('pt');
         $gridPosts = Post::all()->random(3);
         $post = Post::findBySlug($slug);
         $previous = Post::previousPost($post);
         $next = Post::nextPost($post);
         $relatedPosts = Post::relatedPosts($post);
+        $posts = Post::Recomendado($post);
         $date = Date::parse($post->created_at)->format('d F, Y');
 
         return view('post.show')->with(
             compact(
                 'post',
+                'posts',
                 'previous',
                 'next',
                 'relatedPosts',

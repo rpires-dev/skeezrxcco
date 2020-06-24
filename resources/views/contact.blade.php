@@ -1,7 +1,9 @@
 @extends('layouts.index')
-@section('page_title', '| Contact ')
+@section('page_title', '| Sobre ')
 @section('container')
-<div class="s-content content">
+
+<div class="s-content">
+
     <main class="row content__page">
 
         <section class="column large-full entry format-standard">
@@ -17,19 +19,9 @@
 
             <div class="content__page-header">
                 <h1 class="display-1">
-                    Get In Touch.
+                    Contacte-nos
                 </h1>
             </div> <!-- end content__page-header -->
-
-            <p class="lead drop-cap">
-                Duis ex ad cupidatat tempor Excepteur cillum cupidatat
-                fugiat nostrud cupidatat dolor sunt sint sit nisi est eu exercitation
-                incididunt adipisicing veniam velit id fugiat enim mollit amet anim veniam dolor
-                dolor irure velit commodo cillum sit nulla ullamco magna amet magna cupidatat qui
-                labore cillum sit in tempor veniam consequat non laborum adipisicing aliqua
-                ea nisi sint.
-            </p>
-
             <p>
                 Duis ex ad cupidatat tempor Excepteur cillum cupidatat fugiat nostrud cupidatat
                 dolor sunt sint sit nisi est eu exercitation incididunt adipisicing veniam velit
@@ -43,7 +35,7 @@
 
             <div class="row">
                 <div class="column large-six tab-full">
-                    <h4>Where to Find Us</h4>
+                    <h4>Coordenadas</h4>
 
                     <p>
                         1600 Amphitheatre Parkway<br>
@@ -54,7 +46,7 @@
                 </div>
 
                 <div class="column large-six tab-full">
-                    <h4>Contact Info</h4>
+                    <h4>Informações</h4>
 
                     <p>sayhello@typerite.com<br>
                         info@typerite.com <br>
@@ -64,7 +56,7 @@
                 </div>
             </div>
 
-            <h3 class="h2">Say Hello</h3>
+            <h3 class="h2">Olá,</h3>
 
             <form name="contactForm" id="contactForm" method="post" action="" autocomplete="off">
                 <fieldset>
@@ -98,6 +90,13 @@
 
     </main>
 
-</div> <!-- end s-content -->
+</div>
+
+
 
 @stop
+
+
+@section('js')
+
+@endsection

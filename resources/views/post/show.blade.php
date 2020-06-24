@@ -1,339 +1,726 @@
 @extends('layouts.index')
-@section('page_title', '| '.$post->title)
+@section('page_title', '| Home Page ')
 @section('container')
+@section('css')
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
 
-<section class="site-section py-lg">
-    <div class="s-content content">
-        <main class="row content__page">
+<link rel="stylesheet" href="https://cdn.rawgit.com/filamentgroup/fixed-sticky/master/fixedsticky.css">
+<link rel="stylesheet" href="/css/custom.css">
+@endsection
+<style>
+    @media screen and (max-width:390px) {
+        .content__page-header {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
 
-            <article class="column large-full entry format-standard">
+        .entry__header-meta li {
+            color: gray;
+            display: inline-block;
+            padding-left: 0;
+            margin: 0 0;
+            font-size: x-small;
+        }
 
-                <div class="media-wrap entry__media">
-                    <div class="entry__post-thumb">
-                        <img src="/storage/{{ $post->image }}" sizes="(max-width: 2000px) 100vw, 2000px" alt="">
-                    </div>
+        .entry__header-meta {
+            text-align: left;
+            font-size: 0.9rem;
+            font-weight: 500;
+            line-height: 1.778;
+            margin-left: 0;
+            color: #a09c9c;
+            margin-bottom: 0;
+        }
+
+
+        #postImage {
+            height: 428px;
+            width: auto;
+            object-fit: cover;
+        }
+
+        #notMobileTitle {
+            display: none;
+        }
+    }
+
+    @media screen and (min-width:390px) {
+        .entry__header-meta li {
+            color: gray;
+            display: inline-block;
+            padding-left: 0;
+            margin: 0 0;
+            font-size: small;
+        }
+
+        .entry__header-meta {
+            text-align: left;
+            font-size: 0.9rem;
+            font-weight: 500;
+            line-height: 1.778;
+            margin-left: 0;
+            color: gray;
+            margin-bottom: 0;
+        }
+
+        #postImage {
+            height: 428px;
+            width: auto;
+            object-fit: cover;
+        }
+
+        #mobileTitle {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width:1024px) and (min-width:768px) {
+        #postImage {
+            height: 118.8vw;
+            width: auto;
+            object-fit: cover;
+        }
+    }
+
+    @media screen and (min-width:900px) {
+
+        #postBody {
+            width: 111%;
+        }
+    }
+
+
+
+    @media screen and (max-width: 400px) {
+
+        .masonry-wrap,
+        .listing-header {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        #socialTable {
+            display: none;
+        }
+
+        .masonry-wrap,
+        .listing-header {
+            width: auto;
+            max-width: 500px;
+        }
+    }
+
+    @media screen and (min-width: 600px) {
+        .display-1 {
+            text-align: left;
+            font-size: 4.6rem;
+            line-height: 1.143;
+            letter-spacing: -0.05rem;
+            margin-top: 0;
+            margin-bottom: 0.8rem;
+        }
+    }
+
+    .socialButton {
+        padding: 1.5rem 3.2rem;
+        text-align: left;
+        border-bottom: 1px solid #e0e0e0;
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    #popularBody {
+        padding-bottom: 20px;
+    }
+
+    .fixedsticky {
+        top: 0px;
+        padding-top: 90px;
+    }
+
+    #popularesImg {
+        margin: 0px
+    }
+
+
+
+    .entry__header-meta {
+        text-align: left;
+        list-style: none;
+        font-size: 1.8rem;
+        font-weight: 300;
+        line-height: 1.778;
+        margin-left: 0;
+        color: #000000;
+    }
+
+    hr {
+        border: solid #000000;
+        border-width: 1px 0 0;
+        clear: both;
+        margin: 2.4rem 0 1.6rem;
+        height: 0;
+        margin-top: 2px;
+    }
+
+    .entry__related {
+        border-top: 1px solid rgb(0, 0, 0);
+    }
+
+    .entry__pagenav {
+        margin-top: 10.2rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgb(0, 0, 0);
+        position: relative;
+    }
+
+    #comments {
+        padding-top: 2rem;
+        padding-bottom: 1.2rem;
+        border-top: 1px solid rgb(0, 0, 0);
+    }
+</style>
+
+<div class="s-content" style="background-color: white;padding-bottom:0px;">
+    <main class="row content__page">
+
+        <article class="column large-full entry format-standard">
+            <div id="mobileTitle" class="content__page-header entry__header">
+                <h1 id="postTitle" class="display-1 entry__title" style="text-align: left;font-size:24px;">
+                    {{$post->title}}
+                </h1>
+                <ul class=" entry__header-meta">
+                    <li class="author">Por <a href="#0">{{$post->author->name}}</a></li>
+                    <li class="cat-links">
+                        <a href="#">em {{$post->category->name}}</a>
+
+                    </li>
+                    <li class="date">&nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i>
+                        {{Date::parse($post->created_at)->format('d F, Y')}}
+
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="media-wrap entry__media">
+                <div class="entry__post-thumb">
+                    <img src="/storage/{{ $post->image }}" id="postImage" sizes="(max-width: 2000px) 100vw, 2000px"
+                        alt="">
                 </div>
+                <ul class="entry__header-meta">
 
-                <div class="content__page-header entry__header">
-                    <h1 class="display-1 entry__title">
-                        {{$post->title}}
-                    </h1>
-                    <ul class="entry__header-meta">
-                        <li class="author">Por <a href="#0">{{$post->author->name}}</a></li>
-                        <li class="date">
-                            {{   Date::parse($post->created_at)->format('d F, Y')}}
+                    <li class="date">&nbsp;<i class="fa fa-camera" aria-hidden="true"></i>
+                        &nbsp; Getty
 
-                        </li>
-                        <li class="cat-links">
-                            <a href="#"> {{$post->category->name}}</a>
+                    </li>
 
-                        </li>
-                    </ul>
-                </div> <!-- end entry__header -->
-
-                <div class="entry__content">
-
-                    <p class="lead drop-cap">
-                        {{$post->excerpt}}
-                    </p>
-
-                    <p>
-                        {{strip_tags($post->body)}}
-                    </p>
+                </ul>
+            </div>
 
 
+        </article>
 
 
+        <div class="masonry-wrap">
+            <div id="postBody" class="row col-12" style="margin-left: 0;padding-left: 0;">
 
-                    <p class="entry__tags">
-                        <span>Tags deste Artigo </span>
-
-                        <span class="entry__tag-list">
-                            @foreach($post->tags as $tag)
-
-                            <a href="#">{{$tag->name}}</a>
-                            @endforeach
-
-                        </span>
-
-                    </p>
-                </div> <!-- end entry content -->
-
-                <div class="entry__pagenav">
-                    <div class="entry__nav">
-                        <div class="entry__prev">
-                            @if (isset($previous))
-
-                            <a href="/post/{{$previous->slug}}" rel="prev">
-                                <span>Artigo anterior</span>
-                                {{ $previous->title }}
-                            </a>
-                            @endif
+                <div class="column large-8 tab-full">
 
 
-                        </div>
-                        <div class="entry__next">
-                            @if (isset($next))
-                            <a href="/post/{{$next->slug}}" rel="next">
-                                <span>Próximo artigo</span>
-                                {{ $next->title }}
-                            </a>
-                            @endif
-                        </div>
-                    </div>
-                </div> <!-- end entry__pagenav -->
-                <div class="entry__related">
-                    @if ($relatedPosts->isNotEmpty())
-                    <h3 class="h2">Artigos Relacionados</h3>
+                    {{-- Last featured  --}}
 
-                    <ul class="related">
+                    <article class="column large-full entry format-standard" style="
+                    padding: 0; ">
+                        <div id="notMobileTitle" class="content__page-header entry__header">
+                            <h1 id="postTitle" class="display-1 entry__title">
+                                {{$post->title}}
+                            </h1>
+                            <ul class="entry__header-meta">
+                                <li class="author">Por <a href="#0">{{$post->author->name}}</a></li>
+                                <li class="cat-links">
+                                    <a href="#">em {{$post->category->name}}</a>
 
-                        @foreach($relatedPosts as $relatedPost)
-                        <li class="related__item">
-                            <a href="/post/{{$relatedPost->slug}}" class="related__link">
-                                <img src="/storage/{{ $relatedPost->image }}" alt="">
-                            </a>
-                            <h5 class="related__post-title"> {{ $relatedPost->title }}</h5>
-                        </li>
-                        @endforeach
-
-                    </ul>
-                    @endif
-                </div> <!-- end entry related -->
-
-
-
-            </article> <!-- end column large-full entry-->
-
-
-            <div class="comments-wrap">
-
-                <div id="comments" class="column large-12">
-
-                    <h3 class="h2">5 Comments</h3>
-
-                    <!-- START commentlist -->
-                    <ol class="commentlist">
-
-                        <li class="depth-1 comment">
-
-                            <div class="comment__avatar">
-                                <img class="avatar" src="images/avatars/user-01.jpg" alt="" width="50" height="50">
-                            </div>
-
-                            <div class="comment__content">
-
-                                <div class="comment__info">
-                                    <div class="comment__author">Itachi Uchiha</div>
-
-                                    <div class="comment__meta">
-                                        <div class="comment__time">April 30, 2019</div>
-                                        <div class="comment__reply">
-                                            <a class="comment-reply-link" href="#0">Reply</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="comment__text">
-                                    <p>Adhuc quaerendum est ne, vis ut harum tantas noluisse, id suas iisque mei. Nec te
-                                        inani ponderum vulputate,
-                                        facilisi expetenda has et. Iudico dictas scriptorem an vim, ei alia mentitum
-                                        est, ne has voluptua praesent.</p>
-                                </div>
-
-                            </div>
-
-                        </li> <!-- end comment level 1 -->
-
-                        <li class="thread-alt depth-1 comment">
-
-                            <div class="comment__avatar">
-                                <img class="avatar" src="images/avatars/user-04.jpg" alt="" width="50" height="50">
-                            </div>
-
-                            <div class="comment__content">
-
-                                <div class="comment__info">
-                                    <div class="comment__author">John Doe</div>
-
-                                    <div class="comment__meta">
-                                        <div class="comment__time">April 30, 2019</div>
-                                        <div class="comment__reply">
-                                            <a class="comment-reply-link" href="#0">Reply</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="comment__text">
-                                    <p>Sumo euismod dissentiunt ne sit, ad eos iudico qualisque adversarium, tota falli
-                                        et mei. Esse euismod
-                                        urbanitas ut sed, et duo scaevola pericula splendide. Primis veritus
-                                        contentiones nec ad, nec et
-                                        tantas semper delicatissimi.</p>
-                                </div>
-
-                            </div>
-
-                            <ul class="children">
-
-                                <li class="depth-2 comment">
-
-                                    <div class="comment__avatar">
-                                        <img class="avatar" src="images/avatars/user-03.jpg" alt="" width="50"
-                                            height="50">
-                                    </div>
-
-                                    <div class="comment__content">
-
-                                        <div class="comment__info">
-                                            <div class="comment__author">Kakashi Hatake</div>
-
-                                            <div class="comment__meta">
-                                                <div class="comment__time">April 29, 2019</div>
-                                                <div class="comment__reply">
-                                                    <a class="comment-reply-link" href="#0">Reply</a>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="comment__text">
-                                            <p>Duis sed odio sit amet nibh vulputate
-                                                cursus a sit amet mauris. Morbi accumsan ipsum velit. Duis sed odio sit
-                                                amet nibh vulputate
-                                                cursus a sit amet mauris</p>
-                                        </div>
-
-                                    </div>
-
-                                    <ul class="children">
-
-                                        <li class="depth-3 comment">
-
-                                            <div class="comment__avatar">
-                                                <img class="avatar" src="images/avatars/user-04.jpg" alt="" width="50"
-                                                    height="50">
-                                            </div>
-
-                                            <div class="comment__content">
-
-                                                <div class="comment__info">
-                                                    <div class="comment__author">John Doe</div>
-
-                                                    <div class="comment__meta">
-                                                        <div class="comment__time">April 29, 2019</div>
-                                                        <div class="comment__reply">
-                                                            <a class="comment-reply-link" href="#0">Reply</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="comment__text">
-                                                    <p>Investigationes demonstraverunt lectores legere me lius quod ii
-                                                        legunt saepius. Claritas est
-                                                        etiam processus dynamicus, qui sequitur mutationem consuetudium
-                                                        lectorum.</p>
-                                                </div>
-
-                                            </div>
-
-                                        </li>
-
-                                    </ul>
+                                </li>
+                                <li class="date">&nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i>
+                                    {{Date::parse($post->created_at)->format('d F, Y')}}
 
                                 </li>
 
                             </ul>
 
-                        </li> <!-- end comment level 1 -->
+                            <table id="socialTable" class="table table-light">
+                                <tbody>
+                                    <tr>
+                                        <td class="socialButton" style="width: 16vw;font-size: smaller;">
+                                            <div style="text-align: center;background-color: #3b5998;color: white;font-family: inherit;    padding: 2px;"
+                                                class="fb_btn"><i class="fa fa-facebook"
+                                                    aria-hidden="true">&nbsp;</i>Partilhar</div>
+                                        </td>
+                                        <td class="socialButton" style="width: 16vw;font-size: smaller;">
+                                            <div style="text-align: center;background-color: #55acee;color: white;font-family: inherit;    padding: 2px;"
+                                                class="fb_btn"><i class="fa fa-twitter"
+                                                    aria-hidden="true">&nbsp;</i>Tweetar</div>
+                                        </td>
+                                        <td class="socialButton" style="width: 16vw;font-size: smaller;">
+                                            <div style="text-align: center;background-color: #444;color: white;font-family: inherit;    padding: 2px;"
+                                                class="fb_btn"><i class="fa fa-envelope"
+                                                    aria-hidden="true">&nbsp;</i>Email
+                                            </div>
+                                        </td>
+                                        <td class="socialButton" style="width: 16vw;font-size: smaller;">
+                                            <div style="text-align: center;background-color:gray;color: white;font-family: inherit;    padding: 2px;"
+                                                class="fb_btn"><i class="fa fa-comment"
+                                                    aria-hidden="true">&nbsp;</i>Comentários</div>
+                                        </td>
 
-                        <li class="depth-1 comment">
 
-                            <div class="comment__avatar">
-                                <img class="avatar" src="images/avatars/user-02.jpg" alt="" width="50" height="50">
+
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+
+                        <div class="entry__content">
+                            <p>
+                                {{strip_tags($post->body)}}
+                                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
+                                piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard
+                                McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of
+                                the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through
+                                the cites of the word in classical literature, discovered the undoubtable source. Lorem
+                                Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The
+                                Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the
+                                theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum,
+                                "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+
+                                The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those
+                                interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero
+                                are also reproduced in their exact original form, accompanied by English versions from
+                                the 1914 translation by H. Rackham.
+                            </p>
+
+                            @if($post->tags->isNotEmpty())
+
+                            <p class="entry__tags">
+                                <span>Tags deste Artigo </span>
+
+                                <span class="entry__tag-list">
+                                    @foreach($post->tags as $tag)
+
+                                    <a href="#">{{$tag->name}}</a>
+                                    @endforeach
+
+                                </span>
+
+                            </p>
+                            @else
+
+                            @endif
+
+
+                        </div> <!-- end entry content -->
+                    </article>
+                </div>
+
+                {{-- StickySideBar --}}
+
+                <hr style="margin-top: 0;">
+                <div class="column large-4 tab-full" style="padding-right: 0;">
+
+                    <aside class="sidebar fixedsticky">
+                        <hr>
+                        <h6 style="margin-top: 0;margin-bottom: 2em;"> &#9899; POPULARES</h6>
+                        <div class="table-responsive">
+                            <?php $count = 0; ?>
+                            <?php $postCount = 1; ?>
+                            @foreach ($posts as $post)
+                            <?php if($count ==5) break; ?>
+                            <div id="popularBody" class="container">
+                                <table class="table_sticky" style="margin-bottom: 0px;">
+
+                                    <tbody>
+                                        <tr>
+                                            <td class="image_grid_" id="image_grid_" rowspan="2" style="padding: 0; ">
+                                                <div class="container">
+                                                    <div class="text-block">
+                                                        <p style="margin-bottom: 0;font-size:small; ">{{$postCount}}</p>
+                                                    </div> <img id="popularesImg" class="image_grid_img"
+                                                        src="/storage/{{$post->image}}" alt="">
+
+                                                </div>
+
+                                            </td>
+                                            <td id="sticky_title_td"
+                                                style="vertical-align: top;padding-left:0px;padding-top:0px;">
+                                                <h3 style="margin-top: 0;" id="sticky_title" class="title_grid_">
+                                                    {{$post->title}}
+                                                </h3>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-bottom: 0;padding-left: 0;">
+                                                <p style="margin-bottom:0px;" id="sticky_subtitle" class="date_grid_">
+                                                    ({{$post->category->name}})
+                                                    {{ Date::parse($post->created_at)->format('d F, Y') }}
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
+                            <?php $postCount++; ?>
+                            <?php $count++; ?>
+                            @endforeach
+                        </div>
 
-                            <div class="comment__content">
+                        <hr style="margin-top: .5em;">
+                    </aside>
+                </div>
 
-                                <div class="comment__info">
-                                    <div class="comment__author">Shikamaru Nara</div>
+            </div>
+        </div>
+    </main>
+</div>
+<div class="s-content" style="background-color: white;padding-top:0px;">
+    <main class="row content__page">
 
-                                    <div class="comment__meta">
-                                        <div class="comment__time">April 26, 2019</div>
-                                        <div class="comment__reply">
-                                            <a class="comment-reply-link" href="#0">Reply</a>
-                                        </div>
+        <article class="column large-full entry format-standard">
+            {{-- Next/ post --}}
+            {{-- <div class="entry__pagenav">
+                                <div class="entry__nav">
+                                    <div class="entry__prev">
+                                        @if (isset($previous))
+
+                                        <a href="/post/{{$previous->slug}}" rel="prev">
+            <span>Artigo anterior</span>
+            {{ $previous->title }}
+            </a>
+            @endif
+
+
+</div>
+<div class="entry__next">
+    @if (isset($next))
+    <a href="/post/{{$next->slug}}" rel="next">
+        <span>Próximo artigo</span>
+        {{ $next->title }}
+    </a>
+    @endif
+
+</div>
+</div>
+</div>
+<div class="entry__related">
+    @if ($relatedPosts->isNotEmpty())
+    <h3 class="h2">Artigos Relacionados</h3>
+
+    <ul class="related">
+
+        @foreach($relatedPosts as $relatedPost)
+        <li class="related__item">
+            <a href="/post/{{$relatedPost->slug}}" class="related__link">
+                <img src="/storage/{{ $relatedPost->image }}" alt="">
+            </a>
+            <h5 class="related__post-title"> {{ $relatedPost->title }}</h5>
+        </li>
+        @endforeach
+
+    </ul>
+    @endif
+</div>
+--}}
+
+
+<hr style="margin-top: 4em;">
+<div class="col-12" style="padding: 20px;">
+    <h6 style="margin-top: 0;margin-bottom: 2em;"> &#9899; Recomendado</h6>
+    <ul class="related">
+        <?php $counter = 0; ?>
+        @foreach ($posts as $post)
+        <?php if($counter == 21) break; ?>
+        <li class="related__item">
+
+            <a href="single-standard.html" class="related__link">
+                <img src="/storage/{{ $post->image }}" alt=""
+                    style="height: auto;width: 300px;object-fit: cover;margin-bottom: 0.5em;">
+            </a>
+
+            <div style="height: 70px;width: 270px;">
+                <h5 class="related__post-title" style="font-size: medium;margin-top: 1em;margin-top:0;">
+                    {{ substr($post->title,0, 67) }}</h5>
+            </div>
+            <p class="maisEm_p" style="font-size: small; margin-bottom:0px;">({{$post->category->name}})
+                {{ Date::parse($post->created_at)->format('d F, Y') }} </p>
+            <hr style="    margin-top: 2px;">
+        </li>
+        <?php $counter++; ?>
+        @endforeach
+    </ul>
+
+</div>
+
+</article> <!-- end column large-full entry-->
+
+
+<div class="comments-wrap">
+
+    <div id="comments" class="column large-12">
+
+        <h3 class="h2">5 Comments</h3>
+
+        <!-- START commentlist -->
+        <ol class="commentlist">
+
+            <li class="depth-1 comment">
+
+                <div class="comment__avatar">
+                    <img class="avatar" src="images/avatars/user-01.jpg" alt="" width="50" height="50">
+                </div>
+
+                <div class="comment__content">
+
+                    <div class="comment__info">
+                        <div class="comment__author">Itachi Uchiha</div>
+
+                        <div class="comment__meta">
+                            <div class="comment__time">April 30, 2019</div>
+                            <div class="comment__reply">
+                                <a class="comment-reply-link" href="#0">Reply</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comment__text">
+                        <p>Adhuc quaerendum est ne, vis ut harum tantas noluisse, id suas iisque
+                            mei. Nec te
+                            inani ponderum vulputate,
+                            facilisi expetenda has et. Iudico dictas scriptorem an vim, ei alia
+                            mentitum
+                            est, ne has voluptua praesent.</p>
+                    </div>
+
+                </div>
+
+            </li> <!-- end comment level 1 -->
+
+            <li class="thread-alt depth-1 comment">
+
+                <div class="comment__avatar">
+                    <img class="avatar" src="images/avatars/user-04.jpg" alt="" width="50" height="50">
+                </div>
+
+                <div class="comment__content">
+
+                    <div class="comment__info">
+                        <div class="comment__author">John Doe</div>
+
+                        <div class="comment__meta">
+                            <div class="comment__time">April 30, 2019</div>
+                            <div class="comment__reply">
+                                <a class="comment-reply-link" href="#0">Reply</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comment__text">
+                        <p>Sumo euismod dissentiunt ne sit, ad eos iudico qualisque adversarium,
+                            tota falli
+                            et mei. Esse euismod
+                            urbanitas ut sed, et duo scaevola pericula splendide. Primis veritus
+                            contentiones nec ad, nec et
+                            tantas semper delicatissimi.</p>
+                    </div>
+
+                </div>
+
+                <ul class="children">
+
+                    <li class="depth-2 comment">
+
+                        <div class="comment__avatar">
+                            <img class="avatar" src="images/avatars/user-03.jpg" alt="" width="50" height="50">
+                        </div>
+
+                        <div class="comment__content">
+
+                            <div class="comment__info">
+                                <div class="comment__author">Kakashi Hatake</div>
+
+                                <div class="comment__meta">
+                                    <div class="comment__time">April 29, 2019</div>
+                                    <div class="comment__reply">
+                                        <a class="comment-reply-link" href="#0">Reply</a>
                                     </div>
                                 </div>
-
-                                <div class="comment__text">
-                                    <p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum
-                                        claritatem.</p>
-                                </div>
-
                             </div>
 
-                        </li> <!-- end comment level 1 -->
+                            <div class="comment__text">
+                                <p>Duis sed odio sit amet nibh vulputate
+                                    cursus a sit amet mauris. Morbi accumsan ipsum velit. Duis sed
+                                    odio sit
+                                    amet nibh vulputate
+                                    cursus a sit amet mauris</p>
+                            </div>
 
-                    </ol>
-                    <!-- END commentlist -->
+                        </div>
 
-                </div> <!-- end comments -->
+                        <ul class="children">
 
-                <div class="column large-12 comment-respond">
+                            <li class="depth-3 comment">
 
-                    <!-- START respond -->
-                    <div id="respond">
-
-                        <h3 class="h2">Add Comment <span>Your email address will not be published</span></h3>
-
-                        <form name="contactForm" id="contactForm" method="post" action="" autocomplete="off">
-                            <fieldset>
-
-                                <div class="form-field">
-                                    <input name="cName" id="cName" class="full-width" placeholder="Your Name" value=""
-                                        type="text">
+                                <div class="comment__avatar">
+                                    <img class="avatar" src="images/avatars/user-04.jpg" alt="" width="50" height="50">
                                 </div>
 
-                                <div class="form-field">
-                                    <input name="cEmail" id="cEmail" class="full-width" placeholder="Your Email"
-                                        value="" type="text">
+                                <div class="comment__content">
+
+                                    <div class="comment__info">
+                                        <div class="comment__author">John Doe</div>
+
+                                        <div class="comment__meta">
+                                            <div class="comment__time">April 29, 2019</div>
+                                            <div class="comment__reply">
+                                                <a class="comment-reply-link" href="#0">Reply</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="comment__text">
+                                        <p>Investigationes demonstraverunt lectores legere me lius
+                                            quod ii
+                                            legunt saepius. Claritas est
+                                            etiam processus dynamicus, qui sequitur mutationem
+                                            consuetudium
+                                            lectorum.</p>
+                                    </div>
+
                                 </div>
 
-                                <div class="form-field">
-                                    <input name="cWebsite" id="cWebsite" class="full-width" placeholder="Website"
-                                        value="" type="text">
-                                </div>
+                            </li>
 
-                                <div class="message form-field">
-                                    <textarea name="cMessage" id="cMessage" class="full-width"
-                                        placeholder="Your Message"></textarea>
-                                </div>
+                        </ul>
 
-                                <input name="submit" id="submit" class="btn btn--primary btn-wide btn--large full-width"
-                                    value="Add Comment" type="submit">
+                    </li>
 
-                            </fieldset>
-                        </form> <!-- end form -->
+                </ul>
 
+            </li> <!-- end comment level 1 -->
+
+            <li class="depth-1 comment">
+
+                <div class="comment__avatar">
+                    <img class="avatar" src="images/avatars/user-02.jpg" alt="" width="50" height="50">
+                </div>
+
+                <div class="comment__content">
+
+                    <div class="comment__info">
+                        <div class="comment__author">Shikamaru Nara</div>
+
+                        <div class="comment__meta">
+                            <div class="comment__time">April 26, 2019</div>
+                            <div class="comment__reply">
+                                <a class="comment-reply-link" href="#0">Reply</a>
+                            </div>
+                        </div>
                     </div>
-                    <!-- END respond-->
-                    @comments(['model'=> $post])
-                </div> <!-- end comment-respond -->
 
-            </div> <!-- end comments-wrap -->
-        </main>
+                    <div class="comment__text">
+                        <p>Typi non habent claritatem insitam; est usus legentis in iis qui facit
+                            eorum
+                            claritatem.</p>
+                    </div>
 
-    </div>
-</section>
+                </div>
 
-@stop
+            </li> <!-- end comment level 1 -->
 
-{{--
- {{strip_tags($post->body)}}
+        </ol>
+        <!-- END commentlist -->
+
+    </div> <!-- end comments -->
+
+    <div class="column large-12 comment-respond">
+
+        <!-- START respond -->
+        <div id="respond">
+
+            <h3 class="h2">Add Comment <span>Your email address will not be published</span></h3>
+
+            <form name="contactForm" id="contactForm" method="post" action="" autocomplete="off">
+                <fieldset>
+
+                    <div class="form-field">
+                        <input name="cName" id="cName" class="full-width" placeholder="Your Name" value="" type="text">
+                    </div>
+
+                    <div class="form-field">
+                        <input name="cEmail" id="cEmail" class="full-width" placeholder="Your Email" value=""
+                            type="text">
+                    </div>
+
+                    <div class="form-field">
+                        <input name="cWebsite" id="cWebsite" class="full-width" placeholder="Website" value=""
+                            type="text">
+                    </div>
+
+                    <div class="message form-field">
+                        <textarea name="cMessage" id="cMessage" class="full-width"
+                            placeholder="Your Message"></textarea>
+                    </div>
+
+                    <input name="submit" id="submit" class="btn btn--primary btn-wide btn--large full-width"
+                        value="Add Comment" type="submit">
+
+                </fieldset>
+            </form> <!-- end form -->
+
+        </div>
+        <!-- END respond-->
+
+    </div> <!-- end comment-respond -->
+
+</div> <!-- end comments-wrap -->
+</main>
+
 @comments(['model'=> $post])
-{{$post->created_at->format('F d, Y')}}
-{{$post->title}}
-{{$post->category->name}}
-/storage/{{ $post->image }}
-{{$post->excerpt}}
---}}
+</div>
+
+
+
+
+@section('js')
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.11.0.min.js'></script>
+<script type="text/javascript">
+    $(document).ready( function() {$( '.sidebar' ).fixedsticky();  });
+</script>
+<script src="https://cdn.rawgit.com/filamentgroup/fixed-sticky/master/fixedsticky.css"></script>
+<script src="https://cdn.rawgit.com/filamentgroup/fixed-sticky/master/fixedsticky.js"></script>
+@endsection
+@endsection
+
+
+{{-- SLIDE POSTS --}}
+{{-- @foreach ($slidePosts as $slidePost)
+{{$slidePost->slug}}
+/storage/{{ $slidePost->image }}
+{{$slidePost->created_at->format('F d, Y')}}
+{{$slidePost->title}}
+{{$slidePost->category->name}}
+{{ substr($slidePost->excerpt,0, 40) }}
+
+@endforeach --}}
+
+{{-- @foreach ($posts as $post)
+@include('partials.post',['post' => $post])
+@endforeach --}}
+
+{{-- PAGINATION --}}
+{{-- {{$posts->links()}} --}}

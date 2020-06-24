@@ -32,9 +32,17 @@
         }
     }
 </style>
+
+{{-- <div class="s-content" style="background-color: white;padding-top:0px;">
+
+    <div class="row"></div>
+</div> --}}
 <div class="s-content" style="background-color: white;padding-top:0px;">
-    <hr style="margin-top: 4em;">
-    <h6 style="margin-top: 0;margin-bottom: 2em;"> &#9899; Destaques</h6>
+
+    <div class="col-12" style="padding: 20px;">
+        <hr style="margin-top: 4em;">
+        <h6 style="margin-top: 0;margin-bottom: 2em;"> &#9899; Em Destaque</h6>
+    </div>
     <div class="masonry-wrap">
 
         <div class="masonry" style="position: relative; height: 423.418px;">
@@ -107,12 +115,27 @@
                 <?php $counter++; ?>
                 @endforeach
             </ul>
-            @include('partials.newsletter')
+
         </div>
         <div class="row">
 
         </div>
 
+
+
+
+    </div>
+</div>
+
+<div class="s-content" style="background: url(images/wheel-1000.jpg);background-color:#1a1a1a;">
+
+
+    @include('partials.newsletter')
+</div>
+
+<div class="s-content" style="background-color: white;padding-top:0px;">
+
+    <div class="masonry-wrap">
         {{-- More music --}}
         <div class="col-12" style="padding: 20px;">
             <hr style="margin-top: 4em;">
@@ -140,12 +163,15 @@
             </ul>
 
         </div>
-
-
     </div>
 </div>
 
 
+
+<div class="s-content" style="background-color: white;padding-top:0px;">
+
+    <div class="row"></div>
+</div>
 @section('js')
 <script type='text/javascript' src='http://code.jquery.com/jquery-1.11.0.min.js'></script>
 <script type="text/javascript">
