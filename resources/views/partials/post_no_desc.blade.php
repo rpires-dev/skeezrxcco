@@ -22,8 +22,14 @@
             max-width: 1019px;
         }
     }
+
+    #masonry_entry:hover #entry__title {
+
+        text-decoration: underline;
+    }
 </style>
-<article class="masonry__brick entry format-standard animate-this" style="position: absolute; left: 50%; top: 0px;">
+<article class="masonry__brick entry format-standard animate-this" style="position: absolute; left: 50%; top: 0px;"
+    id="masonry_entry">
     <div class="entry__thumb">
 
 
@@ -50,7 +56,8 @@
     </div>
     <div class="entry__text">
         <div class="entry__header">
-            <h2 class="entry__title"><a href="/post/{{$post->slug}}"> {{ substr($post->title,0, 70) }}</a>
+            <h2 class="entry__title" id="entry__title"><a href="/post/{{$post->slug}}">
+                    {{ substr($post->title,0, 70) }}</a>
             </h2>
             <div class="entry__meta">
                 <span class="entry__meta-cat">

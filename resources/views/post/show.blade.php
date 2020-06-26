@@ -9,6 +9,25 @@
 <link rel="stylesheet" href="/css/custom.css">
 @endsection
 <style>
+    #avatar_reply {
+        margin-left: 20px;
+    }
+
+    .comment ul.children {
+        margin: 0;
+        margin-left: 20px;
+        padding: 0;
+    }
+
+    textarea {
+        min-height: 0;
+        color: black;
+    }
+
+    /* .replyForm {
+        display: none;
+    } */
+
     @media screen and (max-width:390px) {
         .content__page-header {
             text-align: center;
@@ -469,184 +488,7 @@
 </article> <!-- end column large-full entry-->
 
 
-<div class="comments-wrap">
-
-    <div id="comments" class="column large-12">
-
-        <h3 class="h2">5 Comments</h3>
-
-        <!-- START commentlist -->
-        <ol class="commentlist">
-
-            <li class="depth-1 comment">
-
-                <div class="comment__avatar">
-                    <img class="avatar" src="images/avatars/user-01.jpg" alt="" width="50" height="50">
-                </div>
-
-                <div class="comment__content">
-
-                    <div class="comment__info">
-                        <div class="comment__author">Itachi Uchiha</div>
-
-                        <div class="comment__meta">
-                            <div class="comment__time">April 30, 2019</div>
-                            <div class="comment__reply">
-                                <a class="comment-reply-link" href="#0">Reply</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="comment__text">
-                        <p>Adhuc quaerendum est ne, vis ut harum tantas noluisse, id suas iisque
-                            mei. Nec te
-                            inani ponderum vulputate,
-                            facilisi expetenda has et. Iudico dictas scriptorem an vim, ei alia
-                            mentitum
-                            est, ne has voluptua praesent.</p>
-                    </div>
-
-                </div>
-
-            </li> <!-- end comment level 1 -->
-
-            <li class="thread-alt depth-1 comment">
-
-                <div class="comment__avatar">
-                    <img class="avatar" src="images/avatars/user-04.jpg" alt="" width="50" height="50">
-                </div>
-
-                <div class="comment__content">
-
-                    <div class="comment__info">
-                        <div class="comment__author">John Doe</div>
-
-                        <div class="comment__meta">
-                            <div class="comment__time">April 30, 2019</div>
-                            <div class="comment__reply">
-                                <a class="comment-reply-link" href="#0">Reply</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="comment__text">
-                        <p>Sumo euismod dissentiunt ne sit, ad eos iudico qualisque adversarium,
-                            tota falli
-                            et mei. Esse euismod
-                            urbanitas ut sed, et duo scaevola pericula splendide. Primis veritus
-                            contentiones nec ad, nec et
-                            tantas semper delicatissimi.</p>
-                    </div>
-
-                </div>
-
-                <ul class="children">
-
-                    <li class="depth-2 comment">
-
-                        <div class="comment__avatar">
-                            <img class="avatar" src="images/avatars/user-03.jpg" alt="" width="50" height="50">
-                        </div>
-
-                        <div class="comment__content">
-
-                            <div class="comment__info">
-                                <div class="comment__author">Kakashi Hatake</div>
-
-                                <div class="comment__meta">
-                                    <div class="comment__time">April 29, 2019</div>
-                                    <div class="comment__reply">
-                                        <a class="comment-reply-link" href="#0">Reply</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="comment__text">
-                                <p>Duis sed odio sit amet nibh vulputate
-                                    cursus a sit amet mauris. Morbi accumsan ipsum velit. Duis sed
-                                    odio sit
-                                    amet nibh vulputate
-                                    cursus a sit amet mauris</p>
-                            </div>
-
-                        </div>
-
-                        <ul class="children">
-
-                            <li class="depth-3 comment">
-
-                                <div class="comment__avatar">
-                                    <img class="avatar" src="images/avatars/user-04.jpg" alt="" width="50" height="50">
-                                </div>
-
-                                <div class="comment__content">
-
-                                    <div class="comment__info">
-                                        <div class="comment__author">John Doe</div>
-
-                                        <div class="comment__meta">
-                                            <div class="comment__time">April 29, 2019</div>
-                                            <div class="comment__reply">
-                                                <a class="comment-reply-link" href="#0">Reply</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="comment__text">
-                                        <p>Investigationes demonstraverunt lectores legere me lius
-                                            quod ii
-                                            legunt saepius. Claritas est
-                                            etiam processus dynamicus, qui sequitur mutationem
-                                            consuetudium
-                                            lectorum.</p>
-                                    </div>
-
-                                </div>
-
-                            </li>
-
-                        </ul>
-
-                    </li>
-
-                </ul>
-
-            </li> <!-- end comment level 1 -->
-
-            <li class="depth-1 comment">
-
-                <div class="comment__avatar">
-                    <img class="avatar" src="images/avatars/user-02.jpg" alt="" width="50" height="50">
-                </div>
-
-                <div class="comment__content">
-
-                    <div class="comment__info">
-                        <div class="comment__author">Shikamaru Nara</div>
-
-                        <div class="comment__meta">
-                            <div class="comment__time">April 26, 2019</div>
-                            <div class="comment__reply">
-                                <a class="comment-reply-link" href="#0">Reply</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="comment__text">
-                        <p>Typi non habent claritatem insitam; est usus legentis in iis qui facit
-                            eorum
-                            claritatem.</p>
-                    </div>
-
-                </div>
-
-            </li> <!-- end comment level 1 -->
-
-        </ol>
-        <!-- END commentlist -->
-
-    </div> <!-- end comments -->
-
+<div class="comments-wrap" style="    width: inherit;">
     <div class="column large-12 comment-respond">
 
         <!-- START respond -->
@@ -654,9 +496,11 @@
 
             <h3 class="h2">Add Comment <span>Your email address will not be published</span></h3>
 
-            <form name="contactForm" id="contactForm" method="post" action="" autocomplete="off">
+            <form name="contactForm" id="contactForm" method="POST" action="{{route('comments.store',$post)}}"
+                autocomplete="off">
+                @csrf
                 <fieldset>
-
+                    {{--
                     <div class="form-field">
                         <input name="cName" id="cName" class="full-width" placeholder="Your Name" value="" type="text">
                     </div>
@@ -664,20 +508,26 @@
                     <div class="form-field">
                         <input name="cEmail" id="cEmail" class="full-width" placeholder="Your Email" value=""
                             type="text">
-                    </div>
+                    </div> --}}
 
-                    <div class="form-field">
+                    {{-- <div class="form-field">
                         <input name="cWebsite" id="cWebsite" class="full-width" placeholder="Website" value=""
                             type="text">
-                    </div>
+                    </div> --}}
 
                     <div class="message form-field">
-                        <textarea name="cMessage" id="cMessage" class="full-width"
+                        <textarea name="content" id="cMessage" class="full-width @error('content') is-invalid @enderror"
                             placeholder="Your Message"></textarea>
                     </div>
 
+                    @error('content')
+                    <div class="invalid-feedback ">{{$errors->first('content')}}</div>
+                    @enderror
+
+
+
                     <input name="submit" id="submit" class="btn btn--primary btn-wide btn--large full-width"
-                        value="Add Comment" type="submit">
+                        value="Enviar" type="submit">
 
                 </fieldset>
             </form> <!-- end form -->
@@ -685,18 +535,156 @@
         </div>
         <!-- END respond-->
 
-    </div> <!-- end comment-respond -->
+    </div>
+    <div id="comments" class="column large-12">
 
-</div> <!-- end comments-wrap -->
+        <h3 class="h2">{{count($post->comments)}} Comentários</h3>
+
+        <!-- START commentlist -->
+        <ol class="commentlist">
+
+            @forelse ($post->comments as $comment)
+            <li class="thread-alt depth-1 comment">
+
+                <div class="comment__avatar">
+                    <img class="avatar" src="/storage/{{$comment->user->avatar ?? 'profile.png'}}" alt="" width="50"
+                        height="50">
+                </div>
+
+                <div class="comment__content">
+
+                    <div class="comment__info">
+                        <div class="comment__author">{{$comment->user->name}}</div>
+
+                        <div class="comment__meta">
+                            <div class="comment__time"> {{ Date::parse($comment->created_at)->format('d F, Y') }}</div>
+                            @auth
+                            <div class="comment__reply">
+                                <a id="commentReplyId" onclick="toggleReplyComment({{$comment->id}})"
+                                    class="comment-reply-link" href="#0">Responder</a>
+                            </div>
+
+
+                            @endauth
+                        </div>
+                    </div>
+
+                    <div class="comment__text">
+                        <p>{{$comment->content}}
+                        </p>
+                    </div>
+
+                </div>
+
+                @auth
+                {{-- REPLY FORM --}}
+                <form action="{{route('comments.storeReply',$comment)}}" method="POST"
+                    id="replyComment-{{ $comment->id}}" class="replyForm" autocomplete="off">
+                    @csrf
+                    <fieldset>
+
+                        <div class="message form-field">
+                            <textarea name="replyComment" id="replyComment" rows="4" cols="50"
+                                class="full-width @error('replyComment') is-invalid @enderror"
+                                placeholder="Your Message"></textarea>
+                        </div>
+
+                        @error('replyComment')
+                        <div class="invalid-feedback ">{{$errors->first('replyComment')}}</div>
+                        @enderror
+
+
+
+                        <input name="submit" id="submit" class="btn btn--primary btn-wide btn--large full-width"
+                            value="Responder" type="submit" style=" width: 36%;">
+
+                    </fieldset>
+                </form>
+                @endauth
+                @foreach ($comment->comments as $replyComment)
+                <ul class="children">
+
+                    <li class="depth-2 comment">
+
+                        <div class="comment__avatar" id="avatar_reply">
+                            <img class="avatar" src="/storage/{{$replyComment->user->avatar ?? 'profile.png'}}" alt=""
+                                width="50" height="50">
+                        </div>
+
+                        <div class="comment__content">
+
+                            <div class="comment__info">
+                                <div class="comment__author">{{$replyComment->user->name}}</div>
+
+                                <div class="comment__meta">
+                                    <div class="comment__time">
+                                        {{ Date::parse($replyComment->created_at)->format('d F, Y') }}</div>
+                                    @auth
+                                    {{-- <div class="comment__reply">
+                                        <a id="commentReplyId" onclick="toggleReplyComment({{$replyComment->id}})"
+                                    class="comment-reply-link" href="#0">Responder</a>
+                                </div> --}}
+
+
+                                @endauth
+                            </div>
+                        </div>
+
+                        <div class="comment__text">
+                            <p>{{$replyComment->content}}
+                            </p>
+                        </div>
+
+    </div>
+
+
+    </li>
+
+    </ul>
+    @endforeach
+
+
+    </li>
+    @empty
+    <h3 class="h2">Este Post ainda não tem comentários </h3>
+    @endforelse
+
+    <!-- end comment level 1 -->
+
+
+    </ol>
+    <!-- END commentlist -->
+
+</div> <!-- end comments -->
+
+
+
 </main>
 
-@comments(['model'=> $post])
 </div>
 
 
 
 
 @section('js')
+<script>
+    var divsToHide = document.getElementsByClassName("replyForm"); //divsToHide is an array
+    for(var i = 0; i < divsToHide.length; i++){
+        // divsToHide[i].style.visibility = "hidden"; // or
+        divsToHide[i].style.display = "none"; // depending on what you're doing
+    }
+
+    function toggleReplyComment(id) {
+  var x =document.getElementById('replyComment-'+id);
+
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script type='text/javascript' src='http://code.jquery.com/jquery-1.11.0.min.js'></script>
 <script type="text/javascript">
     $(document).ready( function() {$( '.sidebar' ).fixedsticky();  });
@@ -704,6 +692,8 @@
 <script src="https://cdn.rawgit.com/filamentgroup/fixed-sticky/master/fixedsticky.css"></script>
 <script src="https://cdn.rawgit.com/filamentgroup/fixed-sticky/master/fixedsticky.js"></script>
 @endsection
+
+<script src="{{asset('js/app.js')}}"></script>
 @endsection
 
 

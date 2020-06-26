@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Laravelista\Comments\Commentable;
+
 
 
 class Post extends Model
 {
-    use Commentable;
+
 
 
 
@@ -29,6 +29,13 @@ class Post extends Model
     {
         return $this->belongsToMany('App\Tag', 'post_tag', 'post_id', 'tag_id');
     }
+
+    public function comments()
+    {
+        return $this->morphMany('App\Comment', 'commentable')->latest();
+    }
+
+    // --------------------------------------------------------------------------------
 
 
     // Query Functions

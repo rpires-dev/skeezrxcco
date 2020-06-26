@@ -1,9 +1,12 @@
-<article class="masonry__brick entry format-standard animate-this">
+<style>
+    .masonry_entry:hover #entry__title {
+
+        text-decoration: underline;
+    }
+</style>
+
+<article class="masonry__brick entry format-standard animate-this" id="masonry_entry">
     <div class="entry__thumb">
-
-
-
-
 
 
         @switch($post->category->name)
@@ -22,22 +25,10 @@
             <img src="/storage/{{ $post->image }}" alt="">
         </a>
         @endswitch
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
     <div class="entry__text">
         <div class="entry__header">
-            <h2 class="entry__title"><a href="/post/{{$post->slug}}">{{$post->title}}</a>
+            <h2 class="entry__title" id="entry__title"><a href="/post/{{$post->slug}}">{{$post->title}}</a>
             </h2>
             <div class="entry__meta">
                 <span class="entry__meta-cat">

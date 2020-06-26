@@ -57,7 +57,7 @@
                 <?php if($count == 3) break; ?>
                 <li class="related__item">
 
-                    <a href="single-standard.html" class="related__link">
+                    <a href="/post/{{$post->slug}}" class="related__link">
                         <img src="/storage/{{ $post->image }}" alt=""
                             style="height: auto;width: 300px;object-fit: cover;">
                     </a>
@@ -90,7 +90,7 @@
                 <?php if($counter == 21) break; ?>
                 <li class="related__item">
 
-                    <a href="single-standard.html" class="related__link">
+                    <a href="/post/{{$post->slug}}" class="related__link">
                         <img src="/storage/{{ $post->image }}" alt=""
                             style="height: auto;width: 300px;object-fit: cover;">
                     </a>
@@ -123,7 +123,7 @@
                 <?php if($counter == 5) break; ?>
                 <li class="related__item" id="relatedItem">
 
-                    <a href="single-standard.html" class="related__link">
+                    <a href="/post/{{$post->slug}}" class="related__link">
                         <img src="/storage/{{ $post->image }}" alt=""
                             style="height: auto;width: 300px;object-fit: cover;">
                     </a>

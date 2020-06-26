@@ -8,7 +8,9 @@
 <link rel="stylesheet" href="https://cdn.rawgit.com/filamentgroup/fixed-sticky/master/fixedsticky.css">
 <link rel="stylesheet" href="/css/custom.css">
 @endsection
-
+<style>
+    /* ~ #b  */
+</style>
 
 <div class="s-content" style="background-color: white;">
 
@@ -19,31 +21,35 @@
             <div class="entry__slider slider">
                 <div class="slider__slides">
                     @foreach ($gridPosts as $post)
-                    <div class="slider__slide">
-                        <img src="/storage/{{ $post->image }}" alt="">
-                        <div class="bottom-left d-flex">
+                    <a href="/post/{{$post->slug}}">
+                        <div class="slider__slide" id="hero_slideImg">
+                            <img src="/storage/{{ $post->image }}" id="hero_slide_Img" alt="">
+                            <div class="bottom-left d-flex">
 
 
-                            <h2 class="sliderText">
-                                {{$post->title}}</h2>
+                                <h2 class="sliderText" id="sliderText_hero">
+                                    {{$post->title}}</h2>
 
-                            <div class="col-3">
-                                <table class="table table-light">
-                                    <tbody>
-                                        <tr>
-                                            <td class="category_td" style="padding-right: 0;width: 2%;"> <a
-                                                    href="/category/{{$post->category->slug}}"
-                                                    style="color: black">({{$post->category->name}})</a>
-                                            </td>
-                                            <td style="padding-left: 8px;">
-                                                {{ Date::parse($post->created_at)->format('d F, Y') }}</a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div class="col-3" style="color: black; ">
+                                    <table class="table table-light">
+                                        <tbody>
+                                            <tr>
+                                                <td class="category_td"
+                                                    style="color: black;padding-right: 0;width: 2%;"> <a
+                                                        href="/category/{{$post->category->slug}}"
+                                                        style="color: black">({{$post->category->name}})</a>
+                                                </td>
+                                                <td style="padding-left: 8px;">
+                                                    {{ Date::parse($post->created_at)->format('d F, Y') }}
+
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                     @endforeach
 
                 </div>
@@ -78,35 +84,38 @@
         <?php $count = 0; ?>
         @foreach ($latests as $post)
         <?php if($count == 7) break; ?>
-        <div class="column large-full">
-            <div class="table-responsive">
+        <a href="/post/{{$post->slug}}">
+            <div class="column large-full">
+                <div class="table-responsive" id="table-responsive">
 
-                <table style="margin-bottom: 0px;">
+                    <table style="margin-bottom: 0px;">
 
-                    <tbody>
-                        <tr>
-                            <td class="image_grid_" rowspan="2" style="padding: 0; ">
-                                <img class="image_grid_img" src="/storage/{{ $post->image }}" alt="" style="
+                        <tbody>
+                            <tr>
+                                <td class="image_grid_" rowspan="2" style="padding: 0; ">
+                                    <img class="image_grid_img" id="image" src="/storage/{{ $post->image }}" alt=""
+                                        style="
                                 margin-top: .5em;
                             "></td>
-                            <td style="vertical-align: top;padding-left:0px;">
-                                <h3 style="margin-top: 0;" class="title_grid_">{{ $post->title }}
-                                </h3>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="padding-bottom: 0;padding-left: 0;">
-                                <p style="margin-bottom:0px;" class="date_grid_">({{$post->category->name}})
-                                    {{ Date::parse($post->created_at)->format('d F, Y') }}</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                                <td style="vertical-align: top;padding-left:0px;">
+                                    <h3 style="margin-top: 0;" class="title_grid_">{{ $post->title }}
+                                    </h3>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-bottom: 0;padding-left: 0;">
+                                    <p style="margin-bottom:0px;" class="date_grid_">({{$post->category->name}})
+                                        {{ Date::parse($post->created_at)->format('d F, Y') }}</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-                <hr style="margin: 0;">
+                    <hr style="margin: 0;">
+                </div>
+
             </div>
-
-        </div>
+        </a>
         <?php $count++; ?>
         @endforeach
 
@@ -118,15 +127,15 @@
 
                 {{-- Last featured  --}}
                 @foreach ($featuredSingle as $post)
-                <div class="table">
+                <div class="table" id="table-responsive_single">
                     <table class="table table-dark">
                         <tbody>
                             <tr>
                                 <td style="padding-left: 0;">
                                     <div class="d-flex flex-column-reverse">
-                                        <div><img src="/storage/{{ $post->image }}" alt="Nature" class="responsive"
-                                                width="600" height="400" style="max-width: 616px; ">
-                                            <h3 style="margin-top: 0;">{{$post->title}}</h3>
+                                        <div><img src="/storage/{{ $post->image }}" id="image_single" alt="Nature"
+                                                class="responsive" width="600" height="400" style="max-width: 616px; ">
+                                            <h3 id="title_single" style="margin-top: 0;">{{$post->title}}</h3>
                                             <p style="margin-bottom:0px;">({{$post->category->name}})
                                                 {{ Date::parse($post->created_at)->format('d F, Y') }}</p>
                                             <hr style="max-width: 616px; ">
@@ -144,18 +153,21 @@
                 <?php $count = 0; ?>
                 @foreach ($posts as $post)
                 <?php if($count == 20) break; ?>
+
+
                 <div class="column" style="padding-right: 0px; padding-left: 0px;">
-                    <div class="table-responsive">
+                    <div class="table-responsive" id="table-responsive_rest">
 
                         <table style="margin-bottom: 0px;">
 
                             <tbody>
                                 <tr>
                                     <td class="image_grid_" rowspan="2" style="padding: 0; ">
-                                        <img class="image_grid_img" src="/storage/{{$post->image}}" alt="">
+                                        <img class="image_grid_img" id="image_rest" src="/storage/{{$post->image}}"
+                                            alt="">
                                     </td>
                                     <td style="vertical-align: top;padding-left:0px;padding-top:0px;">
-                                        <h3 style="margin-top: 0;" class="title_grid_">{{$post->title}}
+                                        <h3 style="margin-top: 0;" id="title_rest" class="title_grid_">{{$post->title}}
                                         </h3>
                                     </td>
                                 </tr>
@@ -274,9 +286,8 @@
                     </a>
 
                     <div style="height: 50px;width: 270px;">
-                        <h5 class="related__post-title"
-                            style="margin-top: 1em;Adidas comes out with a new pair to celebrate skeezrxcco NY store launch">
-                            {{$post->title}}</h5>
+                        <h5 class="related__post-title" style="margin-top: 1em;">
+                            {{ substr($post->title,0, 65) }}</h5>
                     </div>
                     <p class="maisEm_p">({{$post->category->name}})
                         {{ Date::parse($post->created_at)->format('d F, Y') }} </p>
@@ -296,15 +307,14 @@
                 <?php if($count == 3) break; ?>
                 <li class="related__item">
 
-                    <a href="single-standard.html" class="related__link">
+                    <a href="/post/{{$post->slug}}" class="related__link">
                         <img src="/storage/{{ $post->image }}" alt=""
                             style="height: auto;width: 300px;object-fit: cover;">
                     </a>
 
                     <div style="height: 50px;width: 270px;">
-                        <h5 class="related__post-title"
-                            style="margin-top: 1em;Adidas comes out with a new pair to celebrate skeezrxcco NY store launch">
-                            {{$post->title}}</h5>
+                        <h5 class="related__post-title" style="margin-top: 1em;">
+                            {{ substr($post->title,0, 65) }}</h5>
                     </div>
                     <p class="maisEm_p">({{$post->category->name}})
                         {{ Date::parse($post->created_at)->format('d F, Y') }} </p>
@@ -324,15 +334,14 @@
                 <?php if($count == 3) break; ?>
                 <li class="related__item">
 
-                    <a href="single-standard.html" class="related__link">
+                    <a href="/post/{{$post->slug}}" class="related__link">
                         <img src="/storage/{{ $post->image }}" alt=""
                             style="height: auto;width: 300px;object-fit: cover;">
                     </a>
 
                     <div style="height: 50px;width: 270px;">
-                        <h5 class="related__post-title"
-                            style="margin-top: 1em;Adidas comes out with a new pair to celebrate skeezrxcco NY store launch">
-                            {{$post->title}}</h5>
+                        <h5 class="related__post-title" style="margin-top: 1em;">
+                            {{ substr($post->title,0, 65) }}</h5>
                     </div>
                     <p class="maisEm_p">({{$post->category->name}})
                         {{ Date::parse($post->created_at)->format('d F, Y') }} </p>

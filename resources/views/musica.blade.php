@@ -1,6 +1,10 @@
 @extends('layouts.index')
 @section('page_title', '| Musica ')
 @section('container')
+@section('css')
+
+<link rel="stylesheet" href="/css/custom.css">
+@endsection
 <style>
     #top {
 
@@ -84,18 +88,18 @@
 
     <article class="column large-full entry format-standard">
 
-        <div class="media-wrap entry__media" style="margin-bottom: 0;">
+        <div class="media-wrap entry__media" id="musicHero" style="margin-bottom: 0;">
             <div class="entry__post-thumb">
                 <img src="/storage/{{ $post->image }}" alt="">
             </div>
             <div class="content__page-header entry__header">
-                <h1 class="display-1 entry__title text-left">
+                <h1 id="titleHero" class="display-1 entry__title text-left">
                     {{ substr($post->title,0, 70) }}
                 </h1>
                 <table class="table table-light">
                     <tbody>
                         <tr>
-                            <td class="category_td" style="padding-right: 0;width: 2%;"> <a href=""
+                            <td class="category_td" style="padding-right: 0;width: 2%;"> <a href="/post/{{$post->slug}}"
                                     style="color: black">({{$post->category->name}})</a>
                             </td>
                             <td style="padding-left: 8px;"> {{ Date::parse($post->created_at)->format('d F, Y') }}
