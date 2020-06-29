@@ -2125,6 +2125,13 @@
     }
 
   }
+  @media screen and (max-width: 1100px){
+.header__nav > li > a {
+    line-height: 7.2rem;
+    font-weight: 300;
+    text-align: -webkit-center;
+    font-size: xx-large;
+}}
 
   @media screen and (max-width:800px) {
     .display-1 {
@@ -2185,6 +2192,8 @@
     .display-1 {
       font-size: 3.7rem;
     }
+
+    .shopping-bag_icon{height: 25.5px;}
 
     .media-wrap {
       margin-bottom: 5.6rem;
@@ -2256,6 +2265,8 @@
     margin: 0;
   }
 
+
+
   /* -------------------------------------------------------------------
    * ## header main navigation
    * ------------------------------------------------------------------- */
@@ -2303,7 +2314,7 @@
   .header__nav li a {
     display: block;
     color: rgba(255, 255, 255, 0.6);
-    line-height: 4.4rem;
+    line-height: 3.4rem;
   }
 
   .header__nav li.has-children {
@@ -3635,3 +3646,12 @@
   }
 
   /*# sourceMappingURL=main.css.map */
+
+
+  @media screen and (min-width: 1100px){
+
+    #myAccount{
+        display: none;
+    }
+
+    }

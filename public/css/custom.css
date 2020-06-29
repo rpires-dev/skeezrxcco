@@ -53,6 +53,35 @@
 
     }
 
+    #stickyWrap:hover #stickyimage {
+
+        opacity: 0.9;
+
+        -webkit-transition: opacity 0.3s ease-in-out;
+
+    }
+
+    #stickyWrap:hover #sticky_title {
+
+        text-decoration: underline;
+
+    }
+
+    #stickyWrap:hover #stickyimage {
+
+        opacity: 0.9;
+
+        -webkit-transition: opacity 0.3s ease-in-out;
+
+    }
+
+    #stickyWrap:hover #sticky_title {
+
+        text-decoration: underline;
+
+    }
+
+
     #table-responsive_rest:hover #image_rest {
 
         opacity: 0.8;
@@ -150,8 +179,13 @@
         display: table-cell;
         vertical-align: middle
     }
+.site_icon{
+    vertical-align: text-bottom;
+}
 
     @media only screen and (max-width: 600px) {
+
+
 
 
         .sliderText {

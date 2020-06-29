@@ -27,6 +27,13 @@
 
         text-decoration: underline;
     }
+
+    #entry__title:hover~#entryImage {
+
+        opacity: 0.9;
+
+        -webkit-transition: opacity 0.3s ease-in-out;
+    }
 </style>
 <article class="masonry__brick entry format-standard animate-this" style="position: absolute; left: 50%; top: 0px;"
     id="masonry_entry">
@@ -49,7 +56,7 @@
 
         @default
         <a href="/post/{{$post->slug}}" class="entry__thumb-link">
-            <img src="/storage/{{ $post->image }}" alt="">
+            <img src="/storage/{{ $post->image }}" id="entryImage" alt="">
         </a>
         @endswitch
 

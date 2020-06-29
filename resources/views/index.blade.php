@@ -59,6 +59,9 @@
 
 
     </article> <!-- end column large-full entry-->
+
+
+
     {{-- DoubleGrid News --}}
     <div class="masonry-wrap">
         <div class="masonry">
@@ -208,7 +211,7 @@
                         @foreach ($posts as $post)
                         <?php if($count ==5) break; ?>
                         <div class="container">
-                            <table class="table_sticky" style="margin-bottom: 0px;">
+                            <table class="table_sticky" id="stickyWrap" style="margin-bottom: 0px;">
 
                                 <tbody>
                                     <tr>
@@ -216,8 +219,8 @@
                                             <div class="container">
                                                 <div class="text-block">
                                                     <p style="margin-bottom: 0;font-size:small; ">{{$postCount}}</p>
-                                                </div> <img class="image_grid_img" src="storage/{{$post->image}}"
-                                                    alt="">
+                                                </div> <img class="image_grid_img" id="stickyimage"
+                                                    src="storage/{{$post->image}}" alt="">
 
                                             </div>
 

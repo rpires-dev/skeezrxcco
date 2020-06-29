@@ -21,11 +21,13 @@
         <li class="{{ (request()->is('hacktivismo')) ? 'current' : '' }}"><a href="{{url('hacktivismo')}}"
                 title="">#Hacktivismo</a></li>
         <li class="{{ (request()->is('about')) ? 'current' : '' }}"><a href="{{url('about')}}" title="">Sobre</a></li>
-        <li class="{{ (request()->is('contact')) ? 'current' : '' }}"><a href="{{url('contact')}}" title="">Contacto</a>
+        {{-- <li class="{{ (request()->is('contact')) ? 'current' : '' }}"><a href="{{url('contact')}}"
+            title="">Contacto</a> --}}
+        <li class="{{ (request()->is('contact')) ? 'current' : '' }}"><a href="{{url('contact')}}" title="">Shop</a>
         </li>
     </ul> <!-- end header__nav -->
 
-    {{-- <ul class="header__social">
+    <ul class="header__social">
         <li class="ss-facebook">
             <a href="https://facebook.com/">
                 <span class="screen-reader-text">Facebook</span>
@@ -45,7 +47,7 @@
             <a href="#0">
                 <span class="screen-reader-text">Behance</span>
             </a>
-        </li> --}}
-    </ul> --}}
+        </li>--}}
+    </ul>
 
 </nav> <!-- end header__nav-wrap -->

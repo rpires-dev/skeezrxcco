@@ -3,10 +3,17 @@
 <header class="s-header">
 
     <div class="header__top">
-        <div class="header__logo">
-            <a class="site-logo" href="/">
-                <img src="/images/logo.svg" alt="Homepage">
-            </a>
+        <div class="header__logo d-flex">
+            <div class="d-flex flex-row">
+                <a href="/"> <img class="site_icon" src="/images/logo.svg" alt="" style="vertical-align: sub;"></a>
+                <a href=""> <img class="shopping-bag_icon" src="/images/shoppingBag.svg" alt=""
+                        style="margin-left: 1.3em;width: auto;"></a>
+                <img class="shopping-bag_icon" id="myAccount" src="/images/myaccount.svg" alt=""
+                    style="margin-left: 1.3em;width: auto;">
+
+            </div>
+
+
         </div>
 
         <div class="header__search">

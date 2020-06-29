@@ -81,47 +81,78 @@
             padding-top: 4.2em;
         }
     }
+
+
+    #musicHero:hover #musicImageHero {
+
+        opacity: 0.9;
+
+        -webkit-transition: opacity 0.3s ease-in-out;
+
+    }
+
+    #musicHero:hover #titleHero {
+
+        text-decoration: underline;
+
+    }
+
+    #musicRecenteWrap:hover #musicRecenteImage {
+
+        opacity: 0.9;
+
+        -webkit-transition: opacity 0.3s ease-in-out;
+
+    }
+
+    #musicRecenteWrap:hover #musicRecenteTitle {
+
+        text-decoration: underline;
+
+    }
 </style>
 
 <div class="s-content" id="heroMusic" style="background-color: white;padding-bottom:0px;">
     @foreach ($FeaturedMusic as $post)
+    <a href="/post/{{$post->slug}}">
+        <article class="column large-full entry format-standard">
 
-    <article class="column large-full entry format-standard">
-
-        <div class="media-wrap entry__media" id="musicHero" style="margin-bottom: 0;">
-            <div class="entry__post-thumb">
-                <img src="/storage/{{ $post->image }}" alt="">
-            </div>
-            <div class="content__page-header entry__header">
-                <h1 id="titleHero" class="display-1 entry__title text-left">
-                    {{ substr($post->title,0, 70) }}
-                </h1>
-                <table class="table table-light">
-                    <tbody>
-                        <tr>
-                            <td class="category_td" style="padding-right: 0;width: 2%;"> <a href="/post/{{$post->slug}}"
-                                    style="color: black">({{$post->category->name}})</a>
-                            </td>
-                            <td style="padding-left: 8px;"> {{ Date::parse($post->created_at)->format('d F, Y') }}
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
+            <div class="media-wrap entry__media" id="musicHero" style="margin-bottom: 0;">
+                <div class="entry__post-thumb">
+                    <img src="/storage/{{ $post->image }}" id="musicImageHero" alt="">
+                </div>
+                <div class="content__page-header entry__header">
+                    <h1 id="titleHero" class="display-1 entry__title text-left">
+                        {{ substr($post->title,0, 70) }}
+                    </h1>
+                    <table class="table table-light">
+                        <tbody>
+                            <tr>
+                                <td class="category_td" style="padding-right: 0;width: 2%;"> <a
+                                        href="/post/{{$post->slug}}"
+                                        style="color: black">({{$post->category->name}})</a>
+                                </td>
+                                <td style="padding-left: 8px;"> {{ Date::parse($post->created_at)->format('d F, Y') }}
+    </a>
+    </td>
+    </tr>
+    </tbody>
+    </table>
 
 
-            </div>
-        </div>
 
-    </article>
-    @endforeach
+</div>
+</div>
+
+</article>
+</a>
+@endforeach
 </div>
 <div class="s-content" style="background-color: white;padding-top:0px;">
-    <hr>
-    <h6 style="margin-top: 0;margin-bottom: 2em;font-weight: 400;letter-spacing: 0px;text-align:left;"> &#9899; Em
-        destaque </h6>
     <div class="masonry-wrap">
+        <hr>
+        <h6 style="margin-top: 0;margin-bottom: 2em;font-weight: 400;letter-spacing: 0px;text-align:left;"> &#9899; Em
+            destaque </h6>
 
 
 
@@ -155,25 +186,27 @@
 
 
             @foreach ($lastMusicPosts as $post)
+            <a href="/post/{{$post->slug}}">
+                <table class="table table-dark" id="musicRecenteWrap">
+                    <tbody>
+                        <tr>
+                            <td style="padding-left: 0;">
 
-            <table class="table table-dark">
-                <tbody>
-                    <tr>
-                        <td style="padding-left: 0;">
-
-                            <div class="FeaturedMusicGrid_img"> <img class="FeaturedMusicGrid_img"
-                                    src="/storage/{{ $post->image }}" alt="Nature" class="responsive">
-                                <h3 style="margin-top: 0;">{{$post->title}}</h3>
-                                <p style="margin-bottom:0px;">({{$post->category->name}})
-                                    {{ Date::parse($post->created_at)->format('d F, Y') }}</p>
-                                <hr class="FeaturedMusicGrid_img">
-                            </div>
+                                <div class="FeaturedMusicGrid_img"> <img id="musicRecenteImage"
+                                        class="FeaturedMusicGrid_img" src="/storage/{{ $post->image }}" alt="Nature"
+                                        class="responsive">
+                                    <h3 id="musicRecenteTitle" style="margin-top: 0;">{{$post->title}}</h3>
+                                    <p style="margin-bottom:0px;">({{$post->category->name}})
+                                        {{ Date::parse($post->created_at)->format('d F, Y') }}</p>
+                                    <hr class="FeaturedMusicGrid_img">
+                                </div>
 
 
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </a>
             @endforeach
 
 

@@ -68,63 +68,65 @@
                     <a href="/post/{{$post->slug}}" class="related__link">
                         <img src="/storage/{{ $post->image }}" alt=""
                             style="height: auto;width: 300px;object-fit: cover;">
+
+
+                        <div style="height: 70px;width: 270px;">
+                            <h5 class="related__post-title"
+                                style="margin-top: 1em;Adidas comes out with a new pair to celebrate skeezrxcco NY store launch">
+                                {{ substr($post->title,0, 67) }}</h5>
                     </a>
-
-                    <div style="height: 70px;width: 270px;">
-                        <h5 class="related__post-title"
-                            style="margin-top: 1em;Adidas comes out with a new pair to celebrate skeezrxcco NY store launch">
-                            {{ substr($post->title,0, 67) }}</h5>
-                    </div>
-                    <p class="maisEm_p">({{$post->category->name}})
-                        {{ Date::parse($post->created_at)->format('d F, Y') }} </p>
-                    <hr>
-                </li>
-                <?php $count++; ?>
-                @endforeach
-            </ul>
-
         </div>
-        <div class="row">
+        <p class="maisEm_p">({{$post->category->name}})
+            {{ Date::parse($post->created_at)->format('d F, Y') }} </p>
 
-        </div>
-
-        {{-- More music --}}
-        <div class="col-12" style="padding: 20px;">
-            <hr style="margin-top: 4em;">
-            <h6 style="margin-top: 0;margin-bottom: 2em;"> &#9899; Recentes</h6>
-            <ul class="related">
-                <?php $counter = 0; ?>
-                @foreach ($posts as $post)
-                <?php if($counter == 21) break; ?>
-                <li class="related__item">
-
-                    <a href="/post/{{$post->slug}}" class="related__link">
-                        <img src="/storage/{{ $post->image }}" alt=""
-                            style="height: auto;width: 300px;object-fit: cover;">
-                    </a>
-
-                    <div style="height: 70px;width: 270px;">
-                        <h5 class="related__post-title"
-                            style="margin-top: 1em;Adidas comes out with a new pair to celebrate skeezrxcco NY store launch">
-                            {{ substr($post->title,0, 67) }}</h5>
-                    </div>
-                    <p class="maisEm_p">({{$post->category->name}})
-                        {{ Date::parse($post->created_at)->format('d F, Y') }} </p>
-                    <hr>
-                </li>
-                <?php $counter++; ?>
-                @endforeach
-            </ul>
-
-        </div>
-        <div class="row">
-
-        </div>
-
-
-
+        <hr>
+        </li>
+        <?php $count++; ?>
+        @endforeach
+        </ul>
 
     </div>
+    <div class="row">
+
+    </div>
+
+    {{-- More music --}}
+    <div class="col-12" style="padding: 20px;">
+        <hr style="margin-top: 4em;">
+        <h6 style="margin-top: 0;margin-bottom: 2em;"> &#9899; Recentes</h6>
+        <ul class="related">
+            <?php $counter = 0; ?>
+            @foreach ($posts as $post)
+            <?php if($counter == 21) break; ?>
+            <li class="related__item">
+
+                <a href="/post/{{$post->slug}}" class="related__link">
+                    <img src="/storage/{{ $post->image }}" alt="" style="height: auto;width: 300px;object-fit: cover;">
+
+
+                    <div style="height: 70px;width: 270px;">
+                        <h5 class="related__post-title"
+                            style="margin-top: 1em;Adidas comes out with a new pair to celebrate skeezrxcco NY store launch">
+                            {{ substr($post->title,0, 67) }}</h5>
+                    </div>
+                </a>
+                <p class="maisEm_p">({{$post->category->name}})
+                    {{ Date::parse($post->created_at)->format('d F, Y') }} </p>
+                <hr>
+            </li>
+            <?php $counter++; ?>
+            @endforeach
+        </ul>
+
+    </div>
+    <div class="row">
+
+    </div>
+
+
+
+
+</div>
 </div>
 
 <div class="s-content" style="background: url(images/wheel-1000.jpg);background-color:#1a1a1a;">
@@ -149,13 +151,13 @@
                     <a href="/post/{{$post->slug}}" class="related__link">
                         <img src="/storage/{{ $post->image }}" alt=""
                             style="height: auto;width: 300px;object-fit: cover;">
+
+                        <div class="relatedItemText">
+                            <h5 class="related__post-title" style="margin-top: 1em;font-size: 1.2rem;">
+                                {{ substr($post->title,0, 67) }}</h5>
+                        </div>
+
                     </a>
-
-                    <div class="relatedItemText">
-                        <h5 class="related__post-title" style="margin-top: 1em;font-size: 1.2rem;">
-                            {{ substr($post->title,0, 67) }}</h5>
-                    </div>
-
 
                 </li>
                 <?php $counter++; ?>

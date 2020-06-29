@@ -81,6 +81,20 @@
             padding-top: 4.2em;
         }
     }
+
+    #hackRecenteWrap:hover #hackRecenteImage {
+
+        opacity: 0.9;
+
+        -webkit-transition: opacity 0.3s ease-in-out;
+
+    }
+
+    #hackRecenteWrap:hover #hackRecenteTitle {
+
+        text-decoration: underline;
+
+    }
 </style>
 
 <div class="s-content" id="heroMusic" style="background-color: #151515;padding-bottom:0px;padding-top: 0;">
@@ -136,25 +150,28 @@
 
 
             @foreach ($posts as $post)
+            <a href="/post/{{$post->slug}}">
+                <table class="table table-dark" id="hackRecenteWrap">
+                    <tbody>
+                        <tr>
+                            <td style="padding-left: 0;">
 
-            <table class="table table-dark">
-                <tbody>
-                    <tr>
-                        <td style="padding-left: 0;">
-
-                            <div class="FeaturedMusicGrid_img"> <img class="FeaturedMusicGrid_img"
-                                    src="/storage/{{ $post->image }}" alt="Nature" class="responsive">
-                                <h3 style="margin-top: 0;">{{$post->title}}</h3>
-                                <p style="margin-bottom:0px;">({{$post->category->name}})
-                                    {{ Date::parse($post->created_at)->format('d F, Y') }}</p>
-                                <hr class="FeaturedMusicGrid_img">
-                            </div>
+                                <div class="FeaturedMusicGrid_img"> <img class="FeaturedMusicGrid_img"
+                                        src="/storage/{{ $post->image }}" id="hackRecenteImage" alt="Nature"
+                                        class="responsive">
+                                    <h3 style="margin-top: 0;" id="hackRecenteTitle">{{ substr($post->title,0, 65) }}
+                                    </h3>
+                                    <p style="margin-bottom:0px;">({{$post->category->name}})
+                                        {{ Date::parse($post->created_at)->format('d F, Y') }}</p>
+                                    <hr class="FeaturedMusicGrid_img">
+                                </div>
 
 
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </a>
             @endforeach
 
 

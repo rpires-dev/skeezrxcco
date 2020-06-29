@@ -202,7 +202,24 @@
         border-top: 1px solid rgb(0, 0, 0);
     }
 </style>
-
+<div id="fb-root"></div>
+{{-- <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId: '235846761091637',
+            status: true,
+            cookie: true,
+            xfbml: true
+        });
+    };
+    (function() {
+        var e = document.createElement('script');
+        e.async = true;
+        e.src = document.location.protocol +
+            '//connect.facebook.net/en_US/all.js';
+        document.getElementById('fb-root').appendChild(e);
+    }());
+</script> --}}
 <div class="s-content" style="background-color: white;padding-bottom:0px;">
     <main class="row content__page">
 
@@ -232,10 +249,10 @@
                 </div>
                 <ul class="entry__header-meta">
 
-                    <li class="date">&nbsp;<i class="fa fa-camera" aria-hidden="true"></i>
+                    {{-- <li class="date">&nbsp;<i class="fa fa-camera" aria-hidden="true"></i>
                         &nbsp; Getty
 
-                    </li>
+                    </li> --}}
 
                 </ul>
             </div>
@@ -271,49 +288,76 @@
 
                             </ul>
 
-                            <table id="socialTable" class="table table-light">
+
+                            <!-- Go to www.addthis.com/dashboard to customize your tools -->
+
+
+                            {{-- <table id="socialTable" class="table table-light">
                                 <tbody>
                                     <tr>
+
                                         <td class="socialButton" style="width: 16vw;font-size: smaller;">
-                                            <div style="text-align: center;background-color: #3b5998;color: white;font-family: inherit;    padding: 2px;"
-                                                class="fb_btn"><i class="fa fa-facebook"
-                                                    aria-hidden="true">&nbsp;</i>Partilhar</div>
+                                            <a class="w-inline-block social-share-btn fb"
+                                                href="https://www.facebook.com/sharer/sharer.php?u=&t="
+                                                title="Share on Facebook" target="_blank"
+                                                onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;">
+
+                                                <div id="share_button" style="text-align: center;background-color: #3b5998;color:
+                                                    white;font-family: inherit; padding: 2px;" class="fb_btn"><i
+                                                        class="fa fa-facebook" aria-hidden="true">&nbsp;</i>Partilhar
+                                                </div>
+
+
+                                            </a>
                                         </td>
                                         <td class="socialButton" style="width: 16vw;font-size: smaller;">
-                                            <div style="text-align: center;background-color: #55acee;color: white;font-family: inherit;    padding: 2px;"
-                                                class="fb_btn"><i class="fa fa-twitter"
-                                                    aria-hidden="true">&nbsp;</i>Tweetar</div>
-                                        </td>
-                                        <td class="socialButton" style="width: 16vw;font-size: smaller;">
-                                            <div style="text-align: center;background-color: #444;color: white;font-family: inherit;    padding: 2px;"
-                                                class="fb_btn"><i class="fa fa-envelope"
-                                                    aria-hidden="true">&nbsp;</i>Email
-                                            </div>
-                                        </td>
-                                        <td class="socialButton" style="width: 16vw;font-size: smaller;">
-                                            <div style="text-align: center;background-color:gray;color: white;font-family: inherit;    padding: 2px;"
-                                                class="fb_btn"><i class="fa fa-comment"
-                                                    aria-hidden="true">&nbsp;</i>Comentários</div>
-                                        </td>
+                                            <a href="http://twitter.com/share?text={{$post->title}}&hashtags=skr,skeezrxcco,{{$post->category->name}};"
+                            target="_blank">
+                            <div style=" text-align: center;background-color: #55acee;color:
+                                                white;font-family: inherit; padding: 2px;" class="fb_btn"><i
+                                    class="fa fa-twitter" aria-hidden="true">&nbsp;</i>Tweetar
+                            </div>
+                            </a>
+                            </td>
+                            <td class="socialButton" style="width: 16vw;font-size: smaller;">
+                                <a class="w-inline-block social-share-btn email" href="mailto:?subject=&body=:%20"
+                                    target="_blank" title="Email"
+                                    onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' + encodeURIComponent(document.URL)); return false;">
+                                    <div style="text-align: center;background-color: #444;color: white;font-family: inherit;    padding: 2px;"
+                                        class="fb_btn"><i class="fa fa-envelope" aria-hidden="true">&nbsp;</i>Email
+                                    </div>
+                                </a>
+                            </td>
+                            <td class="socialButton" style="width: 16vw;font-size: smaller;">
+                                <a href="#comments">
+                                    <div style="text-align: center;background-color:gray;color: white;font-family: inherit;    padding: 2px;"
+                                        class="fb_btn"><i class="fa fa-comment" aria-hidden="true">&nbsp;</i>Comentários
+                                    </div>
+                                </a>
+                            </td>
 
 
 
 
-                                    </tr>
-                                </tbody>
-                            </table>
+                            </tr>
+                            </tbody>
+                            </table> --}}
+
+
+
                         </div>
 
-
+                        <div class="addthis_inline_share_toolbox"></div>
 
                         <div class="entry__content">
-                            <p>
+                            <p style="
+                            margin-top: 3em;  margin-right: 1.5em;">
                                 {{strip_tags($post->body)}}
                                 Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
                                 piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard
                                 McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of
                                 the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through
-                                the cites of the word in classical literature, discovered the undoubtable source. Lorem
+                                f the word in classical literature, discovered the undoubtable source. Lorem
                                 Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The
                                 Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the
                                 theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum,
@@ -469,15 +513,17 @@
             <a href="single-standard.html" class="related__link">
                 <img src="/storage/{{ $post->image }}" alt=""
                     style="height: auto;width: 300px;object-fit: cover;margin-bottom: 0.5em;">
-            </a>
 
-            <div style="height: 70px;width: 270px;">
-                <h5 class="related__post-title" style="font-size: medium;margin-top: 1em;margin-top:0;">
-                    {{ substr($post->title,0, 67) }}</h5>
-            </div>
-            <p class="maisEm_p" style="font-size: small; margin-bottom:0px;">({{$post->category->name}})
-                {{ Date::parse($post->created_at)->format('d F, Y') }} </p>
-            <hr style="    margin-top: 2px;">
+
+                <div style="height: 70px;width: 270px;">
+                    <h5 class="related__post-title" style="font-size: medium;margin-top: 1em;margin-top:0;">
+                        {{ substr($post->title,0, 67) }}</h5>
+                </div>
+
+                <p class="maisEm_p" style="font-size: small; margin-bottom:0px;">({{$post->category->name}})
+                    {{ Date::parse($post->created_at)->format('d F, Y') }} </p>
+            </a>
+            <hr style="margin-top: 2px;">
         </li>
         <?php $counter++; ?>
         @endforeach
@@ -494,7 +540,7 @@
         <!-- START respond -->
         <div id="respond">
 
-            <h3 class="h2">Add Comment <span>Your email address will not be published</span></h3>
+            {{-- <h3 class="h2">Add Comment <span>Your email address will not be published</span></h3> --}}
 
             <form name="contactForm" id="contactForm" method="POST" action="{{route('comments.store',$post)}}"
                 autocomplete="off">
@@ -667,6 +713,9 @@
 
 
 @section('js')
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ef65a3af5bcd9c2"></script>
 <script>
     var divsToHide = document.getElementsByClassName("replyForm"); //divsToHide is an array
     for(var i = 0; i < divsToHide.length; i++){

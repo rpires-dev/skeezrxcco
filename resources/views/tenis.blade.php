@@ -93,15 +93,16 @@
                     <a href="/post/{{$post->slug}}" class="related__link">
                         <img src="/storage/{{ $post->image }}" alt=""
                             style="height: auto;width: 300px;object-fit: cover;">
-                    </a>
 
-                    <div style="height: 70px;width: 270px;">
-                        <h5 class="related__post-title"
-                            style="margin-top: 1em;Adidas comes out with a new pair to celebrate skeezrxcco NY store launch">
-                            {{ substr($post->title,0, 67) }}</h5>
-                    </div>
-                    <p class="maisEm_p">({{$post->category->name}})
-                        {{ Date::parse($post->created_at)->format('d F, Y') }} </p>
+
+                        <div style="height: 70px;width: 270px;">
+                            <h5 class="related__post-title"
+                                style="margin-top: 1em;Adidas comes out with a new pair to celebrate skeezrxcco NY store launch">
+                                {{ substr($post->title,0, 67) }}</h5>
+                        </div>
+                        <p class="maisEm_p">({{$post->category->name}})
+                            {{ Date::parse($post->created_at)->format('d F, Y') }} </p>
+                    </a>
                     <hr>
                 </li>
                 <?php $counter++; ?>
